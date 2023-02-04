@@ -1,5 +1,14 @@
-import * as React from "react"
+import React from 'react'
+import Layout from '../components/layout';
+import AppProvider from "../context/AppProvider"
 
-export default function IndexPage() {
-  return <div className="text-3xl font-bold underline">Hello world!</div>
+const IndexPage = () => {
+  return (
+    <AppProvider>
+      <Layout>
+       
+     </Layout>
+    </AppProvider>
+  )
 }
+export default IndexPage;
