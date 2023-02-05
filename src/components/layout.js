@@ -1,15 +1,14 @@
 import React from 'react'
-import useDarkMode from '../hooks/useDarkMode';
+import Navbar from './Navbar';
 
-const Layout = () => {
-    const {theme, setTheme} = useDarkMode()
+const Layout = ({children}) => {
   return (
-     <div className=' bg-white dark:bg-black text-black dark:text-white text-center font-mono font-black text-2xl'>
-        index page
+    <div className='grid w-full h-screen min-h-screen grid-rows-1 my-20 space-y-10 bg-white scroll-none dark:bg-black layout'>
+      <Navbar  />
+      <body className="h-screen bg-white dark:bg-black">{ children }</body>
       
-          <button className='bg-red-500 w-fit text-sm h-5 m-2 py-0 px-2 text-center grid' onClick={setTheme}>{ theme }</button>
-      </div>
-   
+ 
+    </div>
   )
 }
 export default Layout;

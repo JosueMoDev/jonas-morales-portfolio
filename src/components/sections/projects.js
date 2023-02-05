@@ -1,8 +1,10 @@
+import React from "react"
+
 const Projects = () => {
   return (
-    <div>
+    <section className="font-mono text-xl font-black text-black dark:text-white" id="projects">
       Projects
-    </div>
+    </section>
   )
 }
 
