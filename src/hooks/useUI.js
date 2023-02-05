@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import AppContext from '../context';
-const useDarkMode = () => {
-  const { appState, toggleTheme } = useContext(AppContext);
-  const { theme} = appState
+const useUi = () => {
+  const { appState, toggleTheme, onOpenSideBar } = useContext(AppContext);
+  const { theme, isSideBarOpen} = appState
   const setTheme = () => {
     if (document.documentElement.classList.toggle('dark')) { 
       localStorage.theme = 'dark'
@@ -12,11 +12,15 @@ const useDarkMode = () => {
       toggleTheme('light')
     }
   }
-  
+  const openSideBar = () => {
+    onOpenSideBar()
+  }
   return {
     theme,
-    setTheme
+    isSideBarOpen,
+    setTheme,
+    openSideBar
   }
 
 }
-export default useDarkMode;
+export default useUi;

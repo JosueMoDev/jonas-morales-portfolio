@@ -4,7 +4,9 @@ export const appReducer = (state, action) => {
         case 'toggleTheme':
             return { ...state, theme: action.payload.theme }
         case 'onIntroDone':
-            return {...state, isIntroDone: true }
+            return { ...state, isIntroDone: true }
+        case 'onOpenSideBar':
+            return {...state, isSideBarOpen:!state.isSideBarOpen }
         default:
             return state;
     }

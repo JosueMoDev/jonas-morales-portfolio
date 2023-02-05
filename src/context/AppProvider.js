@@ -6,7 +6,8 @@ import React from 'react';
 
 const INITIAL_STATE = {
     isIntroDone:false,
-    theme: localStorage.theme
+    theme: localStorage.theme,
+    isSideBarOpen: false,
 }
 
 const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -19,6 +20,9 @@ const AppProvider = ({ children }) => {
     const onIntroDone = () => { 
         dispatch({type:'onIntroDone'})
     }
+    const onOpenSideBar = () => { 
+        dispatch({type:'onOpenSideBar'})
+    }
 
     console.log(appState)
     useEffect(() => { 
@@ -29,6 +33,6 @@ const AppProvider = ({ children }) => {
             document.documentElement.classList.remove('dark')
           }
     },[])
-    return (<AppContext.Provider value={{ appState, toggleTheme, onIntroDone }}>{ children }</AppContext.Provider>)
+    return (<AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onOpenSideBar}}>{ children }</AppContext.Provider>)
 }
 export default AppProvider;
