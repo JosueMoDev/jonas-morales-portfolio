@@ -13,6 +13,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@icons-pack/react-simple-icons": "^6.2.0",
+    "@mui/material": "^5.11.7",
     "gatsby": "^5.5.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "react": "^18.2.0",

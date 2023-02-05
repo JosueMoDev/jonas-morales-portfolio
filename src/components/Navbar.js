@@ -1,7 +1,9 @@
 import { Link } from 'gatsby';
 import React from 'react'
 import useDarkMode from '../hooks/useDarkMode';
-
+import {IconButton} from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 const Navbar = () => {
     const {theme, setTheme} = useDarkMode()
 
@@ -20,7 +22,16 @@ const Navbar = () => {
           <Link className="text-white nav-link"  to="/#projects">
             Projects
           </Link>
-      <button className='grid h-5 px-2 py-0 m-2 text-sm text-center bg-red-500 w-fit' onClick={setTheme}>{theme}</button>
+          <IconButton 
+            onClick={setTheme} 
+            size="small"
+            className='rounded-full hover:dark:bg-gray-700 hover:bg-gray-300'
+          >
+            <FontAwesomeIcon
+              className='w-5 h-5 text-black dark:text-white' 
+              icon={(theme === 'dark') ? faSun : faMoon} />
+          </IconButton>
+          
           
     </nav>
   )
