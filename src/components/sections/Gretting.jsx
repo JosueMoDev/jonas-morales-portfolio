@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 
 import useUi from "../../hooks/useUI";
-
 import { motion, useAnimation } from "framer-motion"
+
 
 
 const Gretting = () => {
