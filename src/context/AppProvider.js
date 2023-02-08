@@ -33,6 +33,11 @@ const AppProvider = ({ children }) => {
             document.documentElement.classList.remove('dark')
           }
     },[])
-    return (<AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onOpenSideBar}}>{ children }</AppContext.Provider>)
+    return (
+        <div className='flex-0'>
+            
+            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onOpenSideBar }}>{children}</AppContext.Provider>
+        </div>
+    )
 }
 export default AppProvider;

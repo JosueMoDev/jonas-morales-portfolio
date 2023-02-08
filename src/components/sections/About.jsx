@@ -1,12 +1,15 @@
 import React from "react"
+import {siteDescription, name} from "../../../config"
+
 const About = () => {
+  
     return (
-      <section className="w-full h-screen font-mono text-xl font-black text-center text-black dark:text-white " id="about">
-        <div className="py-[10%]">
-          <p className="px-10 font-mono text-3xl font-black text-black dark:text-white">I'm Jonas Morales</p>
-          <p className="px-10 font-mono text-xl font-black text-black dark:text-white">I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic</p>
-        </div>
-      </section>
+      <div className="flex w-full h-auto font-mono text-xl font-black text-center text-black bg-orange-500 dark:text-white " id="about">
+        <div className="grid w-full px-10 m-2 bg-red-800 pt-36 justify-self-center">
+          {name}
+          {siteDescription}
+        </div>        
+      </div>
     )
   }
   

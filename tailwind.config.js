@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'mono': ['monospace', 'Fira Code'],
+    }
   },
   plugins: [
     'gatsby-plugin-postcss'
