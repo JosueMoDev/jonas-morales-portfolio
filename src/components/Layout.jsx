@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     const pageLoadSequence = async () => {
       if (!isIntroDone) {  
-        setTimeout(() => doIntroDone(), 2000)
+        setTimeout(() => doIntroDone(), 1500)
       }
       if (isIntroDone) {
 
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
            animate={gControls}
            className='grid w-full min-h-screen grid-cols-1 grid-rows-1 m-0 auto-rows-auto scroll-p-0'
            > 
-           <header className='fixed top-0 w-full px-2'>
+           <header className='fixed top-0 w-full px-2 z-110'>
            <Navbar/>
            </header>
            <main id='main-container'>

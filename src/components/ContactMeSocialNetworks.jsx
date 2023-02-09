@@ -1,53 +1,40 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import { Github, Gmail, Linkedin, Twitter, Whatsapp } from '@icons-pack/react-simple-icons';
-import { IconButton } from '@mui/material';
+import { Link } from 'gatsby';
 
 const ContactMeSocialNetworks = () => {
   return (
-    <div className='flex justify-around space-x-3 w-fit'>
+    <div className='flex content-center justify-center space-x-4 w-fit'>
         <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
                 duration: 0.4,
-                delay: 3,
+                delay: 1.5,
             }}
             >
-            <IconButton 
-            className='w-12 h-12 text-gray-700 rounded-full md:w-16 md:h-16 hover:dark:bg-gray-800 dark:text-white hover:bg-gray-200'
+            <Link className='text-gray-700 cursor-pointer dark:text-white '
+             to={'https://twitter.com/JonsMorales5'}
             >
-             <Linkedin className='w-24 h-24 m-1 md:m-2 md:w-32 md:h-32' /> 
-          </IconButton>
+             <Linkedin className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
+            </Link>
         </motion.div>
           
+    
         <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
                 duration: 0.4,
-                delay: 3,
+                delay: 1.5,
             }}
+        >
+            <Link className='text-gray-700 cursor-pointer dark:text-white '
+             to={'https://twitter.com/JonsMorales5'}
             >
-            <IconButton 
-            className='w-12 h-12 text-gray-700 rounded-full md:w-16 md:h-16 hover:dark:bg-gray-800 dark:text-white hover:bg-gray-200'
-            >
-             <Gmail className='w-24 h-24 m-1 md:m-2 md:w-32 md:h-32' /> 
-          </IconButton>
-          </motion.div> 
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{
-                duration: 0.4,
-                delay: 3,
-            }}
-            >
-            <IconButton 
-            className='w-12 h-12 text-gray-700 rounded-full md:w-16 md:h-16 hover:dark:bg-gray-800 dark:text-white hover:bg-gray-200'
-            >
-             <Github className='w-24 h-24 m-1 md:m-2 md:w-32 md:h-32' /> 
-              </IconButton>
+             <Gmail className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
+            </Link>
               
         </motion.div> 
               
@@ -56,14 +43,14 @@ const ContactMeSocialNetworks = () => {
             animate={{ scale: 1 }}
             transition={{
                 duration: 0.4,
-                delay: 3,
+                delay: 1.5,
             }}
             >
-            <IconButton 
-            className='w-12 h-12 text-gray-700 rounded-full md:w-16 md:h-16 hover:dark:bg-gray-800 dark:text-white hover:bg-gray-200'
+            <Link className='text-gray-700 cursor-pointer dark:text-white '
+             to={'https://twitter.com/JonsMorales5'}
             >
-             <Twitter className='w-24 h-24 m-1 md:m-2 md:w-32 md:h-32' /> 
-          </IconButton>
+             <Github className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
+            </Link>
         </motion.div>  
 
         <motion.div
@@ -71,16 +58,33 @@ const ContactMeSocialNetworks = () => {
             animate={{ scale: 1 }}
             transition={{
                 duration: 0.4,
-                delay: 3,
+                delay: 1.5,
             }}
             >
-            <IconButton 
-            className='w-12 h-12 text-gray-700 rounded-full md:w-16 md:h-16 hover:dark:bg-gray-800 dark:text-white hover:bg-gray-200'
+            <Link className='text-gray-700 cursor-pointer dark:text-white '
+             to={'https://twitter.com/JonsMorales5'}
             >
-             <Whatsapp className='w-24 h-24 m-1 md:m-2 md:w-32 md:h-32' /> 
-          </IconButton>
+             <Whatsapp className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
+            </Link>
         </motion.div>   
+        
+        <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+                duration: 0.4,
+                delay: 1.5,
+            }}
+            >
+            <Link className='text-gray-700 cursor-pointer dark:text-white '
+             to={'https://twitter.com/JonsMorales5'}
+            >
+             <Twitter className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
+            </Link>
+        </motion.div>  
+ 
     </div>
+  
   )
 }
 
