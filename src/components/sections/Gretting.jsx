@@ -7,7 +7,6 @@ import { motion, useAnimation } from "framer-motion"
 
 const Gretting = () => {
   const { isIntroDone } = useUi();
-  console.log(isIntroDone)
   const gControls = useAnimation()
   const eControls = useAnimation()
   const sControls = useAnimation()
@@ -15,7 +14,7 @@ const Gretting = () => {
 
   useEffect(() => {
     const pageLoadSequence = async () => {
-      if (!isIntroDone) {
+      if (isIntroDone) {
         eControls.start({
           rotate: [0, -10, 12, -10, 9, 0, 0, 0, 0, 0, 0],
           transition: { duration: 2.5, loop: 3, repeatDelay: 1 },
@@ -34,8 +33,8 @@ const Gretting = () => {
     pageLoadSequence()
   }, [isIntroDone,  eControls, gControls, sControls, uControls])
   return (
-    <div className="flex w-full h-full font-mono text-xl font-black text-center text-black bg-orange-500 dark:text-white " id="greeting">
-     <div className="grid w-full px-10 m-2 bg-orange-800 pt-36 justify-self-center">
+    <div className="flex w-full h-full font-mono text-xl font-black text-center text-black dark:text-white " id="greeting">
+     <div className="grid w-full px-10 m-2 pt-[16rem] justify-self-center">
      <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={gControls}

@@ -15,7 +15,7 @@ const Navbar = () => {
   
   return (
     <>
-    <nav className="sticky flex justify-between  px-5 py-5 md:py-8   top-0 items-center  text-black bg-white rounded-b-lg shadow-md h-[8%] shadow-gray-300  dark:bg-black dark:shadow-[#17202A] dark:text-white"> 
+    <nav className=" flex justify-between py-5  px-5 items-center  text-black bg-white rounded-b-lg shadow-md h-[8%] shadow-gray-300  dark:bg-black dark:shadow-[#17202A] dark:text-white"> 
         <div className='space-x-10 '>
           <Link
             className="font-mono text-base font-semibold text-center text-black md:text-xl dark:text-white"

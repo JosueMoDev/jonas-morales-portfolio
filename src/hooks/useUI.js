@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import AppContext from '../context';
 const useUi = () => {
-  const { appState, toggleTheme, onOpenSideBar } = useContext(AppContext);
+  const { appState, toggleTheme, onOpenSideBar, onIntroDone } = useContext(AppContext);
   const { theme, isSideBarOpen, isIntroDone  } = appState
   const setTheme = () => {
     if (document.documentElement.classList.toggle('dark')) { 
@@ -15,12 +15,17 @@ const useUi = () => {
   const openSideBar = () => {
     onOpenSideBar()
   }
+
+  const doIntroDone = () => {
+    onIntroDone()
+  }
   return {
     theme,
     isSideBarOpen,
     setTheme,
     openSideBar,
-    isIntroDone
+    isIntroDone,
+    doIntroDone
 
   }
 

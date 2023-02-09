@@ -23,8 +23,6 @@ const AppProvider = ({ children }) => {
     const onOpenSideBar = () => { 
         dispatch({type:'onOpenSideBar'})
     }
-
-    console.log(appState)
     useEffect(() => { 
         if (localStorage.theme === 'dark' || systemTheme ) {
             document.documentElement.classList.add('dark');
