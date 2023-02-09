@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
 
 import useUi from "../../hooks/useUI";
-import { motion, useAnimation } from "framer-motion"
+import { motion, useAnimation  } from "framer-motion"
+import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 
 
 
@@ -46,15 +47,19 @@ const Gretting = () => {
                     animate={eControls}
                     style={{ originX: 0.7, originY: 0.7 }}
                     >
-                  <p>👋🏻</p>
+                    <p>👋🏻</p>
                   </motion.div>
                 </div>
-                <p className="text-center md:text-start">I'm Jonas Morales</p>
+                <p className="">I'm Jonas Morales</p>
               </div>
               
               <p className="flex items-center my-5 space-y-1 font-mono text-lg text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl" t>I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
               I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
               </p>
+            </div>
+            <div className="grid mt-[1rem] space-y-5">
+              <p className="text-xl font-semibold text-center md:text-start ">Contact me here 👇🏻</p>
+              <ContactMeSocialNetworks/>
             </div>
           </motion.div>
           <motion.div
