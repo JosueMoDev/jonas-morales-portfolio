@@ -29,7 +29,7 @@ const SideBar = () => {
             {navLinks.menu.map(({name, url }) => (
               <Link
               key={url}
-              className="font-mono text-base font-semibold text-right text-black md:text-4xl dark:text-white"
+              className="font-mono text-base text-right text-black md:text-4xl dark:text-white"
               to={url}
               >
                 { name}
