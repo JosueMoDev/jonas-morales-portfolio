@@ -38,11 +38,11 @@ module.exports = {
   },
    skills: [
     {
-      name: "Angular",
+      name: "angular",
       icon:'Angular'
     },
     {
-      name: "React.js",
+      name: "React",
       icon:'ReactJs'
     },
     {
@@ -50,7 +50,7 @@ module.exports = {
       icon:'Javascript'
     },
     {
-      name: "Node.js",
+      name: "Node",
       icon:'Nodedotjs'
 
     },
@@ -89,7 +89,7 @@ module.exports = {
       icon:'Graphql'
     },
     {
-      name: "Gatsby.js",
+      name: "Gatsby",
       icon:'Gatsby'
     },
     {
@@ -125,7 +125,7 @@ module.exports = {
       icon:'Springboot'
     },
   ],
-  shownItems: 5
+  shownItems: 6
     
   }
   
