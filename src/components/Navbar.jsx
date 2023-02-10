@@ -21,7 +21,7 @@ const Navbar = () => {
             className="font-mono text-base text-center text-black md:text-xl dark:text-white"
             to="/#greeting"
             >
-          { '< Jonas />'}
+            <img className='w-12 h-12' src={`/images/${(theme === 'dark') ? 'jm-dark.svg' : 'jm-light.svg'}`} alt="logo" />
         </Link>
       </div>
       <div className='flex justify-end space-x-10 '>
