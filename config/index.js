@@ -35,6 +35,97 @@ module.exports = {
           url: "/#contact",
         },
       ],
+  },
+   skills: [
+    {
+      name: "Angular",
+      icon:'Angular'
     },
+    {
+      name: "React.js",
+      icon:'ReactJs'
+    },
+    {
+      name: "JavaScript",
+      icon:'Javascript'
+    },
+    {
+      name: "Node.js",
+      icon:'Nodedotjs'
+
+    },
+   
+    {
+      name: "TypeScript",
+      icon:'Typescript'
+    },
+    
+    {
+      name: "Docker",
+      icon:'Docker'
+    },
+    {
+      name: "Git",
+      icon:'Git'
+    },
+    {
+      name: "TailWind",
+      icon:'Tailwindcss'
+    },
+    {
+      name: "Bootstrap",
+      icon:'Bootstrap'
+    },
+    {
+      name: "Maria DB",
+      icon:'Mariadb'
+    },
+    {
+      name: "Postgres",
+      icon:'Postgresql'
+    },
+    {
+      name: "GraphQl",
+      icon:'Graphql'
+    },
+    {
+      name: "Gatsby.js",
+      icon:'Gatsby'
+    },
+    {
+      name: "Nest",
+      icon:'Nestjs'
+    },
+    {
+      name: "Mongo DB",
+      icon:'Mongodb'
+    },
+    {
+      name: "HTML",
+      icon:'Html5'
+    },
+    {
+      name: "CSS",
+      icon:'CssThree'
+    },
+    // {
+    //   name: "Kubernetes",
+    //   icon:'Kubernetes'
+    //  },
+     {
+      name: "Redux",
+      icon:'Redux'
+     },
+     {
+      name: "RxJs",
+      icon:'Reactivex'
+     },
+     {
+      name: "Spring Boot",
+      icon:'Springboot'
+    },
+  ],
+  shownItems: 5
+    
   }
   

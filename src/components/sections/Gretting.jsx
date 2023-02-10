@@ -7,7 +7,7 @@ const Gretting = () => {
   return (
     <section className="w-full h-auto " id="greeting">
       {/* Wrapper */}
-      <div  className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[6rem]">
+      <div  className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] md:space-x-10">
           <motion.div
                animate={{ opacity: 100 }}
@@ -50,7 +50,7 @@ const Gretting = () => {
               initial={{ opacity: 0, x: 20, z:0 }}
               animate={{ opacity: 100, x: 0, z:0, transition: { delay: 0.7 }, }}
               >
-            <img className="rounded-lg hover:sepia-[.25]" src="/images/me.png" alt="Me" />
+            <img className="rounded-lg " src="/images/me.png" alt="Me" />
           </motion.div>
         </div>
       </div>
