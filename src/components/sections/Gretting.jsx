@@ -36,7 +36,7 @@ const Gretting = () => {
                 <p className="text-center md:text-start">I'm Jonas Morales</p>
               </div>
               
-              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl" t>I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
+              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl">I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
               I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
               </p>
             </div>

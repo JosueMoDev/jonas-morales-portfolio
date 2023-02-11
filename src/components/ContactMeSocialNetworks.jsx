@@ -15,7 +15,7 @@ const ContactMeSocialNetworks = () => {
             }}
             >
             <Link className='text-gray-700 cursor-pointer dark:text-white '
-             to={'https://twitter.com/JonsMorales5'}
+             to={'#'}
             >
              <Linkedin className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
             </Link>
@@ -31,7 +31,7 @@ const ContactMeSocialNetworks = () => {
             }}
         >
             <Link className='text-gray-700 cursor-pointer dark:text-white '
-             to={'https://twitter.com/JonsMorales5'}
+             to={'#'}
             >
              <Gmail className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
             </Link>
@@ -47,7 +47,7 @@ const ContactMeSocialNetworks = () => {
             }}
             >
             <Link className='text-gray-700 cursor-pointer dark:text-white '
-             to={'https://twitter.com/JonsMorales5'}
+             to={'#'}
             >
              <Github className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
             </Link>
@@ -62,7 +62,7 @@ const ContactMeSocialNetworks = () => {
             }}
             >
             <Link className='text-gray-700 cursor-pointer dark:text-white '
-             to={'https://twitter.com/JonsMorales5'}
+             to={'#'}
             >
              <Whatsapp className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
             </Link>
@@ -77,7 +77,7 @@ const ContactMeSocialNetworks = () => {
             }}
             >
             <Link className='text-gray-700 cursor-pointer dark:text-white '
-             to={'https://twitter.com/JonsMorales5'}
+             to={"#"}
             >
              <Twitter className='w-12 h-12 p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200'  /> 
             </Link>

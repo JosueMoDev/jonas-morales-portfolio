@@ -5,7 +5,14 @@ import Navbar from './Navbar';
 import { motion, useAnimation } from "framer-motion"
 import IntroScreen from './IntroScreen';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, contentfulMain}) => {
+  const main_data = contentfulMain.edges.map(({ node }) => ({
+    animation: { ...node.animation },
+    navbar: {
+      navigation: { ...node.navigation },
+      logos: {...node.logos}
+    }  
+  }))
   const { isIntroDone, doIntroDone } = useUi();
   const gControls = useAnimation()
   useEffect(() => {
@@ -27,14 +34,14 @@ const Layout = ({ children }) => {
   return (
     <>
       {!isIntroDone
-          ? <IntroScreen/>
+        ? <IntroScreen main_data={ main_data } />
           : <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={gControls}
            className='grid w-full min-h-screen grid-cols-1 grid-rows-1 m-0 auto-rows-auto scroll-p-0'
            > 
            <header className='fixed top-0 w-full px-2 z-110'>
-           <Navbar/>
+           <Navbar main_data={main_data} />
            </header>
            <main id='main-container'>
            {children}

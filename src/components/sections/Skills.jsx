@@ -56,7 +56,6 @@ const Skills = () => {
                   <button
                     onClick={() => showMoreItems()}
                     type="button"
-                    textAlign="left"
                     className="p-[1rem] flex justify-center items-center font-mono text-sm md:text-xl font-semibold text-white bg-black border-none rounded-full h-[3rem] w-max-[20rem] dark:bg-white dark:text-black"
                     >
                     + Load more
