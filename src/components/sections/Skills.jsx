@@ -4,10 +4,12 @@ import * as icons  from "@icons-pack/react-simple-icons";
 import { SvgIcon } from "@mui/material";
 import { useAnimation, motion } from "framer-motion";
 import React, { useEffect, useState } from "react"
-import config from "../../../config"
 
-const Skills = () => {
-  const { shownItems, skills } = config
+
+const Skills = ({ contenfulSkills }) => {
+ 
+  const { shownItems,techs } = contenfulSkills.edges[0].node.skills
+
   const [shownSkills, setShownSkills] = useState(shownItems)
   const iControls = useAnimation()
   const bControls = useAnimation()
@@ -24,7 +26,7 @@ const Skills = () => {
     sequence()
   }, [shownSkills, iControls, bControls])
   
-  const showMoreItems = () => setShownSkills(shownSkills + skills.length)
+  const showMoreItems = () => setShownSkills(shownSkills + techs.length)
   return (
     <section className="w-full h-auto mt-[4rem]" id="skills">
     {/* Wrapper */}
@@ -34,7 +36,7 @@ const Skills = () => {
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl md:text-4xl lg:text-6xl">Tech Stack</p>    
             <div className="grid w-full grid-cols-2 gap-3 md:grid-cols-3 md:gap-3">
-              {skills.slice(0, shownSkills).map(({ name, icon }, key) => (
+              {techs.slice(0, shownSkills).map(({ name, icon }, key) => (
                 <motion.div
                 key={key}
                 custom={key}
@@ -51,7 +53,7 @@ const Skills = () => {
                 </motion.div>
                 </motion.div>
               ))}
-              {shownSkills < skills.length && (
+              {shownSkills < techs.length && (
                 <motion.div initial={{ opacity: 0, scaleY: 0 }} animate={bControls}>
                   <button
                     onClick={() => showMoreItems()}

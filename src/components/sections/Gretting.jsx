@@ -1,9 +1,10 @@
 import React from "react"
-
 import { motion } from "framer-motion"
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 
-const Gretting = () => {
+const Gretting = ({ contentfulGreeting }) => {
+  const { greeting, greetingPicture, name } = contentfulGreeting.edges[0].node
+ 
   return (
     <section className="w-full h-auto " id="greeting">
       {/* Wrapper */}
@@ -33,11 +34,11 @@ const Gretting = () => {
                     <p className="text-3xl md:text-4xl lg:text-6xl">👋🏻</p>
                   </motion.div>
                 </div>
-                <p className="text-center md:text-start">I'm Jonas Morales</p>
+                <p className="text-center md:text-start">I'm { name }</p>
               </div>
               
-              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl">I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
-              I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic
+              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl">
+                {greeting}
               </p>
             </div>
             <div className="w-full  grid justify-center md:justify-start  mt-[1rem] space-y-5">
@@ -50,7 +51,7 @@ const Gretting = () => {
               initial={{ opacity: 0, x: 20, z:0 }}
               animate={{ opacity: 100, x: 0, z:0, transition: { delay: 0.7 }, }}
               >
-            <img className="rounded-lg " src="/images/me.png" alt="Me" />
+            <img className="rounded-lg " src={`https:${greetingPicture.file.url}` } alt="Me" />
           </motion.div>
         </div>
       </div>

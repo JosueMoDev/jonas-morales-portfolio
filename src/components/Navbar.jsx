@@ -6,10 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faBars } from '@fortawesome/free-solid-svg-icons'
 import SideBar from './SideBar';
 
-const Navbar = ({ main_data }) => {
-
-  const [data] =  main_data 
-
+const Navbar = ({ items }) => {
+  const { logos, navigation } = items;
   const {theme, isSideBarOpen, setTheme , openSideBar} = useUi()
 
   return (
@@ -20,13 +18,13 @@ const Navbar = ({ main_data }) => {
             className="font-mono text-base text-center text-black md:text-xl dark:text-white"
             to="/#greeting"
             >
-            <img className='w-12 h-12' src={`http:${(theme === 'dark') ? data.navbar.logos[1].file.url : data.navbar.logos[0].file.url}`} alt="logo" />
+            <img className='w-12 h-12' src={`http:${(theme === 'dark') ? logos[1].file.url :logos[0].file.url}`} alt="logo" />
         </Link>
       </div>
       <div className='flex justify-end space-x-10 '>
         <div className='hidden space-x-10 lg:flex'>
           
-        {data.navbar.navigation.menu.map(({name, url }) => (
+        {navigation.menu.map(({name, url }) => (
               <Link
               key={url}
               className="font-mono text-base text-center text-black md:text-xl dark:text-white"
@@ -61,7 +59,7 @@ const Navbar = ({ main_data }) => {
       </nav>
       {
 
-      (isSideBarOpen)?<SideBar/>:null
+        (isSideBarOpen) ? <SideBar navigation={ navigation } />:null
       }
       
     </>

@@ -4,9 +4,9 @@ import { IconButton } from '@mui/material';
 import { Link } from 'gatsby';
 import React from 'react'
 import useUi from '../hooks/useUI';
-import { navLinks } from '../../config';
 
-const SideBar = () => {
+
+const SideBar = ({ navigation }) => {
     const { openSideBar} = useUi()
   return (
     <div className='fixed right-0 top-0 lg:hidden  bg-white shadow-gray-300  dark:bg-black dark:shadow-[#17202A]  rounded-l-lg shadow-md h-screen w-[60%] md:w-[50%] z-110 text-center p-5 md:p-[2rem]   ml-auto'>
@@ -26,7 +26,7 @@ const SideBar = () => {
                 <hr className='w-full h-1 my-5 bg-black sm:my-5 dark:bg-white'/>
             </div> 
             <div className='grid justify-end space-y-5 text-right lg:space-y-12 w-12/12'>
-            {navLinks.menu.map(({name, url }) => (
+            {navigation.menu.map(({name, url }) => (
               <Link
               key={url}
               className="font-mono text-base text-right text-black md:text-4xl dark:text-white"

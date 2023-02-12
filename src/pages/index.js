@@ -58,6 +58,7 @@ query MyQuery {
   allContentfulGreeting {
     edges {
       node {
+        name
         greeting
         greetingPicture {
           file {
@@ -90,12 +91,14 @@ query MyQuery {
     }
   }
   allContentfulSkills {
-    nodes {
-      techStack {
-        toshow
-        techstack {
-          icon
-          name
+    edges {
+      node {
+        skills {
+          shownItems
+          techs {
+            icon
+            name
+          }
         }
       }
     }

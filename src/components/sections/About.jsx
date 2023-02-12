@@ -1,11 +1,10 @@
 import { motion } from "framer-motion"
 import React from "react"
-import pdf from "../../../static/pdf/CV Jonas Morales.pdf"
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-const About = () => {
-  
-    return (
+const About = ({ contentfulAbout }) => {
+  const { aboutMePhoto, aboutText, cvPdf } = contentfulAbout.edges[0].node
+  return (
       <section className="w-full h-auto mt-[4rem]" id="about">
         {/* Wrapper */}
         {/*  */}
@@ -16,22 +15,14 @@ const About = () => {
                 <p className="text-3xl md:text-4xl lg:text-6xl">About Me</p>
         
                 <p className="flex items-center my-10 space-y-1 font-mono tracking-wide text-justify whitespace-normal text-normal md:text-start md:space-y-3 md:text-lg lg:text-xl xl:text-2xl">Born in 1995, I grew up in the midst of the digital rise. As a teenager I
-                                started building my first websites and got more and more
-                                interested in the digital economy.
-
-                                After school, I started to study e-commerce as a bachelor's degree at the University of Applied Sciences Wedel. There, I learnt everything
-                                about how to launch, develop, and market a digital business. Moreover, I was lucky enough to work as a cooperative student for several companies of the Otto Group, such as OTTO and ABOUT YOU.
-
-                                After my studies, I continued working at OTTO as a product manager, being responsible for the product detail page on 
-
-                                Currently, I do web development and design on a freelance basis.
+                  {aboutText.aboutText}
                 </p>
                 <div className="flex justify-center w-full"> 
                   <motion.a
                     className=" flex justify-center space-x-2 items-center m-2 w-fit mb-[1.5rem] p-2 px-4 text-xl  text-white  bg-black rounded-full cursor-pointer dark:text-black dark:bg-white"
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    href={pdf}
+                    href={`https:${cvPdf.file.url}`}
                     download
                     >   
                     <p>Download CV</p>
@@ -41,12 +32,12 @@ const About = () => {
               </div>
             </div>
             <div className=" w-max-[50%] w-full" >
-            <img className="rounded-lg " src="/images/me.JPG" alt="me" />
+              <img className="rounded-lg " src={`https:${aboutMePhoto.file.url}`} alt="me" />
             </div>
           </div>
         </div>
       </section>
     )
-  }
+}
   
   export default About
