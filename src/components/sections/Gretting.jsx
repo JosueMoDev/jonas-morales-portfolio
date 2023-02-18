@@ -3,7 +3,8 @@ import { motion } from "framer-motion"
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 
 const Gretting = ({ contentfulGreeting }) => {
-  const { greeting, greetingPicture, name } = contentfulGreeting.edges[0].node
+  const { allContentfulGreeting, allContentfulSocialNetwork  } = contentfulGreeting
+  const { greeting, greetingPicture, name } = allContentfulGreeting.edges[0].node
  
   return (
     <section className="w-full h-auto " id="greeting">
@@ -43,7 +44,7 @@ const Gretting = ({ contentfulGreeting }) => {
             </div>
             <div className="w-full  grid justify-center md:justify-start  mt-[1rem] space-y-5">
               <p className="text-xl font-bold text-center md:text-2xl md:text-start ">Contact me here 👇🏻</p>
-              <ContactMeSocialNetworks/>
+              <ContactMeSocialNetworks socialNetworks={ allContentfulSocialNetwork } />
             </div>
           </motion.div>
           <motion.div

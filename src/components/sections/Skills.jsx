@@ -35,26 +35,29 @@ const Skills = ({ contenfulSkills }) => {
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl md:text-4xl lg:text-6xl">Tech Stack</p>    
-            <div className="grid w-full grid-cols-2 gap-3 md:grid-cols-3 md:gap-3">
+            <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-3">
               {techs.slice(0, shownSkills).map(({ name, icon }, key) => (
                 <motion.div
                 key={key}
                 custom={key}
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={iControls}
-                className="w-max-[20rem] h-[3rem] flex justify-center  items-center p-[1rem]  rounded-full"
+                className="w-max-[20rem] h-[3rem] mt-8 flex justify-center  items-center p-[1rem]  rounded-full"
                 > 
-                  <motion.div className="flex items-center justify-start w-full space-x-2 font-mono font-semibold capitalize text-start md:text-2xl"
-                  whileHover={{ scale: 1.1 }}
+                  <motion.div className="flex-col items-center w-full space-x-2 font-mono text-center capitalize md:text-2xl"
+                  whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                  <SvgIcon component={icons[`${icon}`]}  inheritViewBox />
+                    <SvgIcon sx={{ width:'3rem', height:'3rem'}}  component={icons[`${icon}`]}  inheritViewBox />
                   <p>{name}</p>
                 </motion.div>
                 </motion.div>
               ))}
-              {shownSkills < techs.length && (
-                <motion.div initial={{ opacity: 0, scaleY: 0 }} animate={bControls}>
+            </div>
+              {shownSkills &&(
+                <motion.div initial={{ opacity: 0, scaleY: 0 }} animate={bControls}
+                className='flex justify-center w-full pt-5 text-center'
+                >
                   <button
                     onClick={() => showMoreItems()}
                     type="button"
@@ -64,7 +67,7 @@ const Skills = ({ contenfulSkills }) => {
                   </button>
                 </motion.div>
               )}
-            </div>
+            
           </div>
         </div>
       </div>

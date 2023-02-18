@@ -14,12 +14,12 @@ import { graphql } from 'gatsby';
 
 
 const IndexPage = ({ data }) => {
-  const { allContentfulAboutMe, allContentfulMain, allContentfulGreeting, allContentfulSkills } = data;
+  const { allContentfulAboutMe, allContentfulMain, allContentfulGreeting, allContentfulSkills, allContentfulSocialNetwork } = data;
   
   return (
     <AppProvider>
       <Layout contentfulMain={allContentfulMain}>
-        <Gretting contentfulGreeting={ allContentfulGreeting} />
+        <Gretting contentfulGreeting={{ allContentfulGreeting, allContentfulSocialNetwork }} />
         <About contentfulAbout={ allContentfulAboutMe} />
         <Skills contenfulSkills={ allContentfulSkills} />
           <Projects />
@@ -98,6 +98,20 @@ query MyQuery {
           techs {
             icon
             name
+          }
+        }
+      }
+    }
+  }
+
+  allContentfulSocialNetwork {
+    edges {
+      node {
+        socialnetworks {
+          socialnetwoksdata {
+            icon
+            name
+            url
           }
         }
       }

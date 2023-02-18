@@ -1,9 +1,9 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconButton } from '@mui/material';
+
 import { Link } from 'gatsby';
 import React from 'react'
 import useUi from '../hooks/useUI';
+import {IconButton, Icon} from '@mui/material';
+import { Close } from '@mui/icons-material';
 
 
 const SideBar = ({ navigation }) => {
@@ -14,11 +14,11 @@ const SideBar = ({ navigation }) => {
             <IconButton 
             onClick={openSideBar} 
             size="small"
-            className=' justify-self-end hover:dark:bg-gray-700 hover:bg-gray-300'
+            className='cursor-pointer justify-self-end hover:dark:bg-gray-700 hover:bg-gray-300'
             >
-            <FontAwesomeIcon
-                className='w-5 h-5 text-black dark:text-white'
-                icon={ faClose } />
+            <div className='rounded-full flex justify-center align-middle w-[1.2rem] h-[1.rem] md:w-[1.5rem] md:h-[1.5rem] hover:dark:bg-gray-700 hover:bg-gray-300'>
+              <Icon className='text-black cursor-pointer dark:text-white' component={Close}  sx={{ width:'100%', height:'100%'}}  />
+            </div>
             </IconButton>
         </div> 
         <div className='grid w-full'>
@@ -29,7 +29,7 @@ const SideBar = ({ navigation }) => {
             {navigation.menu.map(({name, url }) => (
               <Link
               key={url}
-              className="font-mono text-base text-right text-black md:text-4xl dark:text-white"
+              className="font-mono text-base text-right text-black cursor-pointer md:text-4xl dark:text-white"
               to={url}
               >
                 { name}

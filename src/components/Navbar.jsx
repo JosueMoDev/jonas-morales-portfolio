@@ -1,9 +1,8 @@
 import { Link } from 'gatsby';
 import React from 'react'
 import useUi from '../hooks/useUI';
-import {IconButton} from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon, faBars } from '@fortawesome/free-solid-svg-icons'
+import {IconButton, Icon} from '@mui/material';
+import { LightMode, DarkMode, Menu  } from '@mui/icons-material';
 import SideBar from './SideBar';
 
 const Navbar = ({ items }) => {
@@ -21,7 +20,7 @@ const Navbar = ({ items }) => {
             <img className='w-12 h-12' src={`http:${(theme === 'dark') ? logos[1].file.url :logos[0].file.url}`} alt="logo" />
         </Link>
       </div>
-      <div className='flex justify-end space-x-10 '>
+      <div className='flex items-center justify-end space-x-10 '>
         <div className='hidden space-x-10 lg:flex'>
           
         {navigation.menu.map(({name, url }) => (
@@ -35,25 +34,29 @@ const Navbar = ({ items }) => {
           ))}
          
         </div>
-        <div className='flex justify-between space-x-2 md:space-x-5'>
-          <IconButton 
-            onClick={openSideBar} 
-            size="small"
-            className='rounded-full lg:hidden hover:dark:bg-gray-700 hover:bg-gray-300'
-            >
-            <FontAwesomeIcon
-              className='w-4 h-4 text-black md:w-5 md:h-5 lg:hidden dark:text-white'
-              icon={ faBars } />
-          </IconButton>
-          <IconButton 
-            onClick={setTheme} 
-            size="small"
-            className='rounded-full hover:dark:bg-gray-700 hover:bg-gray-300'
-            >
-            <FontAwesomeIcon
-              className='w-4 h-4 text-black md:w-5 md:h-5 dark:text-white' 
-              icon={(theme === 'dark') ? faSun : faMoon} />
-          </IconButton>
+        <div className='flex justify-between space-x-2 md:space-x-5' >
+          <div className='flex lg:hidden'>
+            <IconButton 
+              onClick={openSideBar} 
+              size="small"
+              className='w-full h-full rounded-full hover:dark:bg-gray-700 hover:bg-gray-300'
+              >
+              <div className='rounded-full flex justify-center align-middle w-[1.2rem] h-[1.rem] md:w-[1.5rem] md:h-[1.5rem] hover:dark:bg-gray-700 hover:bg-gray-300'>
+                <Icon className='text-black dark:text-white' component={Menu}  sx={{ width:'100%', height:'100%'}}  />
+              </div>
+            </IconButton>
+          </div>
+          <div className='flex'>
+            <IconButton 
+              onClick={setTheme} 
+              size="small"
+              className='w-full h-full rounded-full hover:dark:bg-gray-700 hover:bg-gray-300'
+              >
+              <div className='rounded-full flex justify-center align-middle w-[1.2rem] h-[1.rem] md:w-[1.5rem] md:h-[1.5rem] hover:dark:bg-gray-700 hover:bg-gray-300'>
+                <Icon className='text-black dark:text-white' component={(theme==='dark')? LightMode: DarkMode}  sx={{ width:'100%', height:'100%'}}  />
+              </div>
+            </IconButton>
+          </div>  
         </div>
       </div>
       </nav>

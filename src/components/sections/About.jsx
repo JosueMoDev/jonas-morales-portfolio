@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import React from "react"
-import { faDownload } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 const About = ({ contentfulAbout }) => {
   const { aboutMePhoto, aboutText, cvPdf } = contentfulAbout.edges[0].node
   return (
@@ -24,9 +23,10 @@ const About = ({ contentfulAbout }) => {
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     href={`https:${cvPdf.file.url}`}
                     download
+                    target="_blank"
                     >   
-                    <p>Download CV</p>
-                    <FontAwesomeIcon className='text-white dark:text-black' icon={faDownload} />
+                    Download CV
+                    {/* <FontAwesomeIcon className='text-white dark:text-black' icon={faDownload} /> */}
                   </motion.a>
                 </div>
               </div>
