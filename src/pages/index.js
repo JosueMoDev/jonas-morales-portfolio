@@ -22,8 +22,8 @@ const IndexPage = ({ data }) => {
         <Gretting contentfulGreeting={{ allContentfulGreeting, allContentfulSocialNetwork }} />
         <About contentfulAbout={ allContentfulAboutMe} />
         <Skills contenfulSkills={ allContentfulSkills} />
-          <Projects />
-          <Contact />
+        <Projects />
+        <Contact contentfulContactMe={{  allContentfulSocialNetwork }}/>
       </Layout>
     </AppProvider>
   )

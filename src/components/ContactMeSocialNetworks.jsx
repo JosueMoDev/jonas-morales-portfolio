@@ -24,7 +24,7 @@ const ContactMeSocialNetworks = ({ socialNetworks }) => {
              target="_blank"
              rel="noreferrer"
             >
-                <Icon className='p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200' sx={{ width:'100%', height:'100%'}} component={icons[`${icon}`]}  inheritViewBox />
+                <Icon className='p-2 rounded-xl hover:dark:bg-gray-800 hover:bg-gray-200' sx={{ width:'100%', height:'100%'}} component={icons[`${icon}`]}  />
             </a>
         </motion.div>))}
 
