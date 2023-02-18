@@ -3,11 +3,13 @@ import React from "react"
 
 const Contact = () => {
     return (
-      <div className="flex w-full h-auto font-mono text-xl font-black text-center text-black bg-orange-500 dark:text-white " id="contact">
-        <div className="grid w-full px-10 m-2 bg-orange-800 pt-36 justify-self-center">
-        
+      <section className="w-full h-auto " id="contact">
+      {/* Wrapper */}
+        <div  className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
+          <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] md:space-x-10">
+          </div>
         </div>
-     </div>
+      </section>
     )
   }
   
