@@ -14,7 +14,7 @@ import { graphql } from 'gatsby';
 
 
 const IndexPage = ({ data }) => {
-  const { allContentfulAboutMe, allContentfulMain, allContentfulGreeting, allContentfulSkills, allContentfulSocialNetwork } = data;
+  const { allContentfulAboutMe, allContentfulContactMe, allContentfulMain, allContentfulGreeting, allContentfulSkills, allContentfulSocialNetwork } = data;
   
   return (
     <AppProvider>
@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
         <About contentfulAbout={ allContentfulAboutMe} />
         <Skills contenfulSkills={ allContentfulSkills} />
         <Projects />
-        <Contact contentfulContactMe={{  allContentfulSocialNetwork }}/>
+        <Contact contentfulContactMe={{  allContentfulSocialNetwork, allContentfulContactMe }}/>
       </Layout>
     </AppProvider>
   )
@@ -117,5 +117,23 @@ query MyQuery {
       }
     }
   }
+
+  allContentfulContactMe {
+    edges {
+      node {
+        contactmedescription
+        fullname
+        job
+        mail
+        contacmePhoto {
+          file {
+            fileName
+            url
+          }
+        }
+      }
+    }
+  }
+
 }
 `

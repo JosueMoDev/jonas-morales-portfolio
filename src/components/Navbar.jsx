@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react'
 import useUi from '../hooks/useUI';
 import {IconButton, Icon} from '@mui/material';
-import { LightMode, DarkMode, Menu, Language  } from '@mui/icons-material';
+import { LightMode, DarkMode, Menu, Translate  } from '@mui/icons-material';
 import SideBar from './SideBar';
 
 const Navbar = ({ items }) => {
@@ -63,7 +63,7 @@ const Navbar = ({ items }) => {
                 className='w-full h-full rounded-full hover:dark:bg-gray-700 hover:bg-gray-300'
                 >
                 <div className='rounded-full flex justify-center align-middle w-[1.2rem] h-[1.rem] md:w-[1.5rem] md:h-[1.5rem] hover:dark:bg-gray-700 hover:bg-gray-300'>
-                  <Icon className='text-black dark:text-white' component={Language}  sx={{ width:'100%', height:'100%'}}  />
+                  <Icon className='text-black dark:text-white' component={Translate}  sx={{ width:'100%', height:'100%'}}  />
                 </div>
               </IconButton>
             </div>  
