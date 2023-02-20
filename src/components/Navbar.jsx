@@ -11,7 +11,7 @@ const Navbar = ({ items }) => {
 
   return (
     <>
-    <nav className=" flex justify-between py-5 px-5 md:px-10 items-center  text-black bg-white rounded-b-lg shadow-md h-[8%] shadow-gray-300  dark:bg-black dark:shadow-[#17202A] dark:text-white"> 
+    <nav className=" flex justify-between py-2  md:py-5 px-5 md:px-10 items-center  text-black bg-white rounded-b-lg shadow-md h-[8%] shadow-gray-300  dark:bg-black dark:shadow-[#17202A] dark:text-white"> 
         <div className='space-x-10 '>
           <Link
             className="font-mono text-base text-center text-black md:text-xl dark:text-white"
