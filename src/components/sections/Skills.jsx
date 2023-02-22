@@ -34,7 +34,7 @@ const Skills = ({ contenfulSkills }) => {
       <div className="flex m-[auto]  p-[1.25rem] md:p-[2.5rem] min-h-[100vh] mb-[6rem] font-mono flex-row justify-between w-full h-auto text-black dark:text-white md:flex-col">
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
-            <p className="text-3xl md:text-4xl lg:text-6xl">Tech Stack</p>    
+            <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">Tech Stack</p>    
             <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-3">
               {techs.slice(0, shownSkills).map(({ name, icon }, key) => (
                 <motion.div

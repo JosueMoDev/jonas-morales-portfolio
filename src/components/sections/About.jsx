@@ -13,7 +13,7 @@ const About = ({ contentfulAbout }) => {
           <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
             <div  className=" w-max-[50%] w-full">
               <div className="">
-                <p className="text-3xl md:text-4xl lg:text-6xl">About Me</p>
+                <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">About Me</p>
         
                 <p className="flex items-center my-10 space-y-1 font-mono tracking-wide text-justify whitespace-normal text-normal md:text-start md:space-y-3 md:text-lg lg:text-xl xl:text-2xl">Born in 1995, I grew up in the midst of the digital rise. As a teenager I
                   {aboutText.aboutText}

@@ -23,7 +23,7 @@ const Gretting = ({ contentfulGreeting }) => {
             <div className="mb-0  md:mb-[1.5rem]">
               <div className="grid items-center space-y-1 font-mono text-2xl font-semibold md:space-y-3 md:text-3xl lg:text-4xl xl:text-5xl ">
                 <div className="flex justify-center space-x-5 text-center md:justify-start md:text-start">
-                  <p className="text-3xl md:text-4xl lg:text-6xl" >Hello</p>
+                  <p className="text-3xl font-semibold md:text-4xl lg:text-6xl" >Hello</p>
                   <motion.div
                     animate={{
                       opacity: 100, 
