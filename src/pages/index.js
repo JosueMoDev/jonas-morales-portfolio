@@ -5,22 +5,20 @@ import Layout from '../components/Layout';
 
 
 
-import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
-import Gretting from '../components/sections/Gretting';
+import AboutMe from '../components/sections/AboutMe';
 import Skills from '../components/sections/Skills';
 import Projects from '../components/sections/Projects';
 import { graphql } from 'gatsby';
 
 
 const IndexPage = ({ data }) => {
-  const { allContentfulAboutMe, allContentfulContactMe, allContentfulMain, allContentfulGreeting, allContentfulSkills, allContentfulSocialNetwork } = data;
+  const {  allContentfulContactMe, allContentfulMain, allContentfulGreeting, allContentfulSkills, allContentfulSocialNetwork } = data;
   
   return (
     <AppProvider>
       <Layout contentfulMain={allContentfulMain}>
-        <Gretting contentfulGreeting={{ allContentfulGreeting, allContentfulSocialNetwork }} />
-        <About contentfulAbout={ allContentfulAboutMe} />
+        <AboutMe contentfulGreeting={{ allContentfulGreeting, allContentfulSocialNetwork }} />
         <Skills contenfulSkills={ allContentfulSkills} />
         <Projects />
         <Contact contentfulContactMe={{  allContentfulSocialNetwork, allContentfulContactMe }}/>
@@ -40,12 +38,6 @@ query MyQuery {
             url
           }
         }
-        animation {
-          file {
-            fileName
-            url
-          }
-        }
         logos {
           file {
             fileName
@@ -55,6 +47,7 @@ query MyQuery {
       }
     }
   }
+ 
   allContentfulGreeting {
     edges {
       node {
@@ -63,33 +56,14 @@ query MyQuery {
         greetingPicture {
           file {
             url
-            fileName
           }
         }
       }
     }
   }
-  allContentfulAboutMe {
-    edges {
-      node {
-        aboutMePhoto {
-          file {
-            url
-            fileName
-          }
-        }
-        aboutText {
-          aboutText
-        }
-        cvPdf {
-          file {
-            fileName
-            url
-          }
-        }
-      }
-    }
-  }
+
+
+  
   allContentfulSkills {
     edges {
       node {

@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion"
 import IntroScreen from './IntroScreen';
 
 const Layout = ({ children, contentfulMain}) => {
-  const { animation, navigation, logos } = contentfulMain.edges[0].node;
+  const {  navigation, logos } = contentfulMain.edges[0].node;
   const { isIntroDone, doIntroDone } = useUi();
   const gControls = useAnimation()
   useEffect(() => {
@@ -28,13 +28,14 @@ const Layout = ({ children, contentfulMain}) => {
   return (
     <>
       {!isIntroDone
-        ? <IntroScreen animation={ animation } />
+        ? <IntroScreen logos={ logos } />
           : <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={gControls}
            className='grid w-full min-h-screen grid-cols-1 grid-rows-1 m-0 auto-rows-auto scroll-p-0'
            > 
            <header className='fixed top-0 w-full px-2 z-110'>
+            
             <Navbar items={{ logos, navigation }} />
            </header>
            <main id='main-container'>

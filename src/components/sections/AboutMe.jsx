@@ -1,16 +1,19 @@
 import React from "react"
 import { motion } from "framer-motion"
+import {Icon} from '@mui/material';
+import { Download } from '@mui/icons-material';
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 
-const Gretting = ({ contentfulGreeting }) => {
+const AboutMe = ({ contentfulGreeting }) => {
   const { allContentfulGreeting, allContentfulSocialNetwork  } = contentfulGreeting
   const { greeting, greetingPicture, name } = allContentfulGreeting.edges[0].node
- 
+  const image = `https:${greetingPicture.file.url}`
+
   return (
-    <section className="w-full h-auto " id="greeting">
+    <section className="w-full h-auto " id="about">
       {/* Wrapper */}
       <div  className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
-        <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] md:space-x-10">
+        <div className="flex flex-wrap items-center md:flex-nowrap xl:mt-[4rem] mt-[3rem] md:space-x-10">
           <motion.div
                animate={{ opacity: 100 }}
                transition={{
@@ -42,23 +45,46 @@ const Gretting = ({ contentfulGreeting }) => {
                 {greeting}
               </p>
             </div>
-            <div className="w-full  grid justify-center md:justify-start  mt-[1rem] space-y-5">
-              <p className="text-xl font-bold text-center md:text-2xl md:text-start ">Contact me here 👇🏻</p>
-              <ContactMeSocialNetworks socialNetworks={ allContentfulSocialNetwork } />
+            <div className="w-full  grid justify-center  mb-[2rem] md:mb-0  mt-[1rem] space-y-5">
+              <p className="text-xl font-bold text-center md:text-2xl ">Contact me here 👇🏻</p>
+              <ContactMeSocialNetworks socialNetworks={allContentfulSocialNetwork} />
             </div>
+           
           </motion.div>
           <motion.div
-              className=" md:max-w-[50%]  max-h-[50%] h-full w-full overflow-hidden "
+              className="  md:max-w-[50%] flex items-center  max-h-[50%] h-full w-full justify-center align-middle overflow-hidden "
               initial={{ opacity: 0, x: 20, z:0 }}
               animate={{ opacity: 100, x: 0, z:0, transition: { delay: 0.7 }, }}
               >
-            <img className="rounded-lg " src={`https:${greetingPicture.file.url}` } alt="Me" />
+              <div className="flex justify-center w-full h-full">
+                <img className=" rounded-xl" src={image} width={'100%'} height={'auto'} alt='Jonas Morales' />
+              </div>
           </motion.div>
         </div>
+        <div className="flex items-center justify-center w-full md:mt-[3rem] "> 
+                <motion.a 
+                    size="small"
+                    className=" flex justify-center  space-x-2 items-center m-2 w-fit mb-[1.5rem] p-2 px-4 text-xl  text-white  bg-black rounded-full cursor-pointer dark:text-black dark:bg-white"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    href={'https://drive.google.com/file/d/1xLZREEzI-4nfsx9N-rWwYHUFZLzvHR-p/view'}
+                    download
+                    target="_blank"
+                >
+                  <div className="flex items-center justify-center w-full h-full align-middle">
+                    <button className='flex rounded-full'>
+                      <p className="text-xl text-center">Download CV</p>
+                      <div className="w-[1.5rem] h-[1.5rem] ">
+                        <Icon  component={Download}  sx={{ width:'100%', height:'100%'}}  />
+                      </div>
+                    </button>
+                  </div>
+                  </motion.a>    
+            </div>
       </div>
       {/* Wrapper */}
     </section>
   )
 }
 
-export default Gretting
+export default AboutMe

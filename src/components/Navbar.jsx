@@ -15,7 +15,7 @@ const Navbar = ({ items }) => {
         <div className='space-x-10 '>
           <Link
             className="font-mono text-base text-center text-black md:text-xl dark:text-white"
-            to="/#greeting"
+            to="/#about"
             >
             <img className='w-12 h-12' src={`http:${(theme === 'dark') ? logos[1].file.url :logos[0].file.url}`} alt="logo" />
         </Link>

@@ -32,7 +32,7 @@ const Contact = ({ contentfulContactMe }) => {
                     <p className="font-thin text-basic">{job}👨🏻‍💻</p>
                       
                   
-                    <div class="flex-col py-4  divide-y-2 w-full  justify-center divide-black mb-[1rem] dark:divide-white divide-solid">      
+                    <div className="flex-col py-4  divide-y-2 w-full  justify-center divide-black mb-[1rem] dark:divide-white divide-solid">      
                       <div className="flex flex-wrap  xl:flex-nowrap items-center justify-center pt-[2rem] w-full"> 
                         <motion.a 
                           size="small"
@@ -72,7 +72,7 @@ const Contact = ({ contentfulContactMe }) => {
                     </div>
           
               
-                    <div class="grid grid-cols-1 py-4  divide-y-2 w-full  justify-center divide-black mb-[1rem] dark:divide-white divide-solid">
+                    <div className="grid grid-cols-1 py-4  divide-y-2 w-full  justify-center divide-black mb-[1rem] dark:divide-white divide-solid">
                       <div className="mb-2 space-y-8 text-center">or</div>
                       
                       <div className="w-full  grid justify-center   pt-[2rem] space-y-5">
