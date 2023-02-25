@@ -25,7 +25,7 @@ const ContactMeSocialNetworks = ({ socialNetworks }) => {
                 >
                     <span className='w-[4rem]  h-[4rem] md:w-[5rem]  md:h-[5rem]'>    
                         <Icon className='w-full h-auto p-2 hover:dark:text-black hover:text-white rounded-xl hover:dark:bg-white hover:bg-black' sx={{height:'100%', width:'100%'}} component={icons[`${icon}`]}  />
-                        <span className='font-mono text-xs font-thin md:text-base hover:'>{name}</span>     
+                        <span className='font-mono text-xs font-thin md:text-base '>{name}</span>     
                     </span>
                 </a>
             

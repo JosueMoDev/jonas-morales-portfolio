@@ -46,7 +46,7 @@ const AboutMe = ({ contentfulGreeting }) => {
               </p>
             </div>
             <div className="w-full  grid justify-center  mb-[3rem] md:mb-0  mt-[1rem] space-y-5">
-              <p className="text-xl font-bold text-center md:text-2xl ">Contact me here 👇🏻</p>
+              <p className="font-mono text-xl font-bold text-center md:text-2xl">Contact me here 👇🏻</p>
               <ContactMeSocialNetworks socialNetworks={allContentfulSocialNetwork} />
             </div>
            
@@ -73,7 +73,7 @@ const AboutMe = ({ contentfulGreeting }) => {
                 >
                   <div className="flex items-center justify-center w-full h-full align-middle">
                     <button className='flex rounded-full'>
-                      <p className="text-xl text-center">Download CV</p>
+                      <p className="font-mono text-xl text-center">Download CV</p>
                       <div className="w-[1.5rem] h-[1.5rem] ">
                         <Icon  component={Download}  sx={{ width:'100%', height:'100%'}}  />
                       </div>

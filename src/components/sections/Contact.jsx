@@ -64,7 +64,7 @@ const Contact = ({ contentfulContactMe }) => {
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-start items-center ">
                               <Icon className="text-[#5bb15c]" component={Phone}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                            <p className="text-sm md:text-lg lg:text-xl xl:text-2xl ">+503 6043-6759</p>
+                            <p className="font-mono text-sm md:text-lg lg:text-xl xl:text-2xl">+503 6043-6759</p>
                           </div>
                         </div>
                       </motion.a>   
@@ -76,7 +76,7 @@ const Contact = ({ contentfulContactMe }) => {
                       <div className="mb-2 space-y-8 text-center">or</div>
                       
                       <div className="w-full  grid justify-center   pt-[2rem] space-y-5">
-                        <p className="text-xl font-bold text-center md:text-2xl ">Contact me here 👇🏻</p>
+                        <p className="font-mono text-xl font-bold text-center md:text-2xl ">Contact me here 👇🏻</p>
                         <ContactMeSocialNetworks socialNetworks={ allContentfulSocialNetwork } />
                       </div>
                     </div>
