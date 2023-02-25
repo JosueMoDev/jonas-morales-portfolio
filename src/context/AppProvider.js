@@ -6,11 +6,10 @@ import React from 'react';
 
 const INITIAL_STATE = {
     isIntroDone:false,
-    theme: localStorage.theme,
+    theme: null,
     isSideBarOpen: false,
 }
 
-const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
 const AppProvider = ({ children }) => {
     const [appState, dispatch] = useReducer( appReducer, INITIAL_STATE)
@@ -24,6 +23,8 @@ const AppProvider = ({ children }) => {
         dispatch({type:'onOpenSideBar'})
     }
     useEffect(() => { 
+        const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        
         if (localStorage.theme === 'dark' || systemTheme ) {
             document.documentElement.classList.add('dark');
             if(systemTheme){ toggleTheme('dark')}

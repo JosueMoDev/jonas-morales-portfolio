@@ -8,7 +8,7 @@ const useUi = () => {
       localStorage.theme = 'dark'
       toggleTheme('dark')
     } else {
-      localStorage.theme ='light'
+      localStorage.theme =' light'
       toggleTheme('light')
     }
   }

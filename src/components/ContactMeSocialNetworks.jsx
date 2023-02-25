@@ -24,7 +24,7 @@ const ContactMeSocialNetworks = ({ socialNetworks }) => {
                 target="_blank"
                 rel="noreferrer"
                 >
-                        <Icon className='w-full h-auto p-2 rounded-xl hover:dark:bg-white hover:bg-black' sx={{height:'100%', width:'100%'}} component={icons[`${icon}`]}  />
+                    <Icon className='w-full h-auto p-2 rounded-xl hover:dark:bg-white hover:bg-black' sx={{height:'100%', width:'100%'}} component={icons[`${icon}`]}  />
                 </a>
                 <span className='font-mono text-xs font-thin md:text-base '>{name}</span>     
             </div>

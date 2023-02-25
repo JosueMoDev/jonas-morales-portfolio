@@ -1,12 +1,13 @@
 module.exports = {
   //-- SITE SETTINGS -----
-  author: "@JosueMoDev",
-  siteTitle: "<Jonas Morales/>",
-  name: "Jonas Morales",
+  author: "Jonas Morales",
+  siteTitle: "Jonas Morales",
+  siteShortTitle: "Jonas Morales", // Used as logo text in header, footer, and splash screen
   siteDescription:
-    "I build Progresive Web application using PERN, MERN and MEAN stack Also I build mobile applications using React Native and Ionic",
-    
+    "Hi there! I'm Jonas Morales, FullStack developer 🇸🇻 .",
+  siteLanguage: "en_US",
   siteIcon: "content/favicon.png", // Relative to gatsby-config file
+  seoTitleSuffix: "Jonas Morales",// Relative to gatsby-config file
     
 
   fonts: {

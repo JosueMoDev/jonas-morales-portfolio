@@ -10,6 +10,7 @@ import AboutMe from '../components/sections/AboutMe';
 import Skills from '../components/sections/Skills';
 import Projects from '../components/sections/Projects';
 import { graphql } from 'gatsby';
+import Seo from '../components/Seo';
 
 
 const IndexPage = ({ data }) => {
@@ -18,6 +19,7 @@ const IndexPage = ({ data }) => {
   return (
     <AppProvider>
       <Layout contentfulMain={allContentfulMain}>
+        <Seo logos={allContentfulMain.edges[0].node.logos}/>
         <AboutMe contentfulGreeting={{ allContentfulGreeting, allContentfulSocialNetwork }} />
         <Skills contenfulSkills={ allContentfulSkills} />
         <Projects />

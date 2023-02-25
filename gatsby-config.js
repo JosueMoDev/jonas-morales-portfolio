@@ -7,22 +7,28 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
   const {
-    siteDescription,
-    siteTitle,
-    navLinks,
-    name
+  author,
+  siteTitle,
+  siteShortTitle,
+  siteDescription,
+  siteIcon, 
+  siteLanguage,
+  seoTitleSuffix
   } = require("./config")
 module.exports = {
 
   siteMetadata: {
-    siteDescription,
+    author,
     siteTitle,
-    navLinks:navLinks,
-    name
+    siteShortTitle, 
+    siteDescription,
+    siteIcon, 
+    siteLanguage,
+    seoTitleSuffix
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -31,8 +37,10 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        // spaceId: process.env.SPACE_ID,
+        // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId:"yakbeysh0blf",
+        accessToken:"yP-r8cMOdzc2eJxDYYI3abX_6Nqzeb5i8W_LiOwL598",
       },
     },
     `gatsby-plugin-image`,
