@@ -45,7 +45,7 @@ const AboutMe = ({ contentfulGreeting }) => {
                 {greeting}
               </p>
             </div>
-            <div className="w-full  grid justify-center  mb-[2rem] md:mb-0  mt-[1rem] space-y-5">
+            <div className="w-full  grid justify-center  mb-[3rem] md:mb-0  mt-[1rem] space-y-5">
               <p className="text-xl font-bold text-center md:text-2xl ">Contact me here 👇🏻</p>
               <ContactMeSocialNetworks socialNetworks={allContentfulSocialNetwork} />
             </div>

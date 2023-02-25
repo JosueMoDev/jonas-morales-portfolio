@@ -17,7 +17,7 @@ const Navbar = ({ items }) => {
             className="font-mono text-base text-center text-black md:text-xl dark:text-white"
             to="/#about"
             >
-            <img className='w-12 h-12' src={`http:${(theme === 'dark') ? logos[1].file.url :logos[0].file.url}`} alt="logo" />
+            <img className='w-12 h-12 ' src={`http:${(theme === 'dark') ? logos[1].file.url :logos[0].file.url}`} alt="logo" />
         </Link>
       </div>
       <div className='flex items-center justify-end space-x-10 '>

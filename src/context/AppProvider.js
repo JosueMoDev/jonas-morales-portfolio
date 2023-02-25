@@ -23,13 +23,15 @@ const AppProvider = ({ children }) => {
         dispatch({type:'onOpenSideBar'})
     }
     useEffect(() => { 
-        const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
         
+        const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
         if (localStorage.theme === 'dark' || systemTheme ) {
             document.documentElement.classList.add('dark');
+            dispatch({type:'toggleTheme', payload:{theme:'dark'}})
             if(systemTheme){ toggleTheme('dark')}
           } else {
             document.documentElement.classList.remove('dark')
+            dispatch({type:'toggleTheme', payload:{theme:'light'}})
           }
     },[])
     return (
