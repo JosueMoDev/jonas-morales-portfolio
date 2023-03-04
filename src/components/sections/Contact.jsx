@@ -19,52 +19,53 @@ const Contact = ({ contentfulContactMe }) => {
           <p className="text-xl font-semibold md:text-3xl lg:text-4xl xl:text-6xl">Would you like contact me ?</p>
           <p className="text-basic md:text-xl lg:text-2xl"> {contactmedescription} </p>
           <div className="flex flex-row items-center md:items-start lg:flex-col justify-start mt-[3rem] mb-[2rem] ">
-            <div  className="flex flex-wrap items-center w-full lg:flex-nowrap">
+            <div  className="flex flex-wrap items-center justify-center w-full lg:flex-nowrap">
               <GatsbyImage 
-                // className=" lg:w-[30%] sm:h-[30%] w-[100%] max-h-[100%] max-w-[ 8.75rem]  h-30 rounded-xl mr-[4rem] mb-0 mb:mb-[2rem]"
-                // src={`https://${contacmePhoto.file.url}`}
+                className="z-[1] pointer-events-none rounded-full  "
                 image={image}
                 loading='lazy'
                 alt='me profile'
+                width={'100%'}
+                height={'100%'}
               />
             
-              <div className="flex-col items-center justify-center w-full text-xl ">
+              <div className="flex-col items-center justify-center w-full px-2 text-xl md:px-5">
                 <div className="flex items-center justify-center w-full ">
                   <div className="flex-row justify-start w-full">
                     <p className="text-xl font-semibold md:text-2xl lg:text-3xl">{fullname}</p>
                     <p className="font-thin text-basic">{job}👨🏻‍💻</p>
                       
                   
-                    <div className="flex-col py-4  divide-y-2 w-full  justify-center divide-black mb-[1rem] dark:divide-white divide-solid">      
-                      <div className="flex flex-wrap  xl:flex-nowrap items-center justify-center pt-[2rem] w-full"> 
+                    <div className="flex-col columns-1 py-4  divide-y-2 w-full   justify-center divide-black mb-[1rem] dark:divide-white divide-solid">      
+                      <div className="flex flex-wrap md:flex-nowrap items-center justify-center pt-[2rem] w-full"> 
                         <motion.a 
                           size="small"
-                          className=" flex justify-center py-4  items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-black shadow-gray-100 shadow-md rounded-md cursor-pointer bg-gray-50 dark:bg-gray-900 dark:text-white dark:shadow-gray-900"
+                          className=" flex justify-center rounded-full py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                           whileHover={{ scale: 1.05 }}
                           transition={{  stiffness: 400, damping: 10 }}
                           href={`mailto:${mail}`}
                           download
                           target="_blank"
                         >
-                        <div className="flex items-center justify-start w-full h-full align-middle">
+                        <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
                           <div className='flex items-center justify-start space-x-2 align-middle rounded-full'>
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#EA4335]" component={Gmail}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                            <p className="text-sm md:text-lg lg:text-xl xl:text-2xl ">{ mail }</p>
+                            <p className="text-[0.8rem]   md:text-lg lg:text-xl xl:text-2xl ">{ mail }</p>
                           </div>
                         </div>
                         </motion.a>    
                         <motion.a 
                           size="small"
-                          className=" flex justify-center py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-black shadow-gray-100 shadow-md rounded-md cursor-pointer dark:text-white dark:shadow-gray-900 bg-gray-50 dark:bg-gray-900"
+                          className=" flex justify-center rounded-full py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                           whileHover={{ scale: 1.05 }}
                           transition={{  stiffness: 400, damping: 10 }}
                           href={`tel:+503 6043-6759`}
                         >
-                        <div className="flex items-center justify-start w-full h-full align-middle">
-                          <div className='flex items-center justify-start w-full space-x-2 align-middle rounded-lg'>
-                            <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-start items-center ">
+                        <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
+                          <div className='flex items-center justify-start space-x-2 align-middle rounded-full'>
+                            <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#5bb15c]" component={Phone}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
                             <p className="font-mono text-sm md:text-lg lg:text-xl xl:text-2xl">+503 6043-6759</p>

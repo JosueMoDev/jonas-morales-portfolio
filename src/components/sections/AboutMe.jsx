@@ -56,13 +56,14 @@ const AboutMe = ({ contentfulGreeting }) => {
               initial={{ opacity: 0, x: 20, z:0 }}
               animate={{ opacity: 100, x: 0, z:0, transition: { delay: 0.7 }, }}
               >
-              {/* <div className="flex justify-center w-full h-full">
-                <img className=" rounded-xl" src={image} width={'100%'} height={'auto'} alt='Jonas Morales' />
-              </div> */}
-            <div className="flex justify-center w-full h-full">
-              <GatsbyImage image={image} />
-              </div> 
-            
+            <GatsbyImage
+              className="z-[1] pointer-events-none rounded-3xl"
+              image={image}
+              loading='lazy'
+              alt='me profile'
+              width={'100%'}
+              height={'100%'}
+            /> 
           </motion.div>
         </div>
         <div className="flex items-center justify-center w-full md:mt-[3rem] "> 

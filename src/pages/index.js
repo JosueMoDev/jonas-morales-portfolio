@@ -42,7 +42,6 @@ query MyQuery {
         }
         logos {
           file {
-            fileName
             url
           }
         }
