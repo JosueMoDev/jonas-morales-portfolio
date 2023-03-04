@@ -3,17 +3,17 @@ import { motion } from "framer-motion"
 import {Icon} from '@mui/material';
 import { Download } from '@mui/icons-material';
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
 const AboutMe = ({ contentfulGreeting }) => {
   const { allContentfulGreeting, allContentfulSocialNetwork  } = contentfulGreeting
   const { greeting, greetingPicture, name } = allContentfulGreeting.edges[0].node
-  const image = `https:${greetingPicture.file.url}`
-
+  const image = getImage(greetingPicture)
   return (
     <section className="w-full h-auto " id="about">
       {/* Wrapper */}
       <div  className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
-        <div className="flex flex-wrap items-center md:flex-nowrap xl:mt-[4rem] mt-[3rem] md:space-x-10">
+        <div className="flex flex-wrap items-center md:flex-nowrap mt-[4rem] md:space-x-10">
           <motion.div
                animate={{ opacity: 100 }}
                transition={{
@@ -56,9 +56,13 @@ const AboutMe = ({ contentfulGreeting }) => {
               initial={{ opacity: 0, x: 20, z:0 }}
               animate={{ opacity: 100, x: 0, z:0, transition: { delay: 0.7 }, }}
               >
-              <div className="flex justify-center w-full h-full">
+              {/* <div className="flex justify-center w-full h-full">
                 <img className=" rounded-xl" src={image} width={'100%'} height={'auto'} alt='Jonas Morales' />
-              </div>
+              </div> */}
+            <div className="flex justify-center w-full h-full">
+              <GatsbyImage image={image} />
+              </div> 
+            
           </motion.div>
         </div>
         <div className="flex items-center justify-center w-full md:mt-[3rem] "> 

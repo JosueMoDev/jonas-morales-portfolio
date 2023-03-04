@@ -34,7 +34,7 @@ const Layout = ({ children, contentfulMain}) => {
            animate={gControls}
            className='grid w-full min-h-screen grid-cols-1 grid-rows-1 m-0 auto-rows-auto scroll-p-0'
            > 
-           <header className='fixed top-0 w-full px-2 z-110'>
+           <header className='sticky top-0 w-full px-2 z-110'>
             
             <Navbar items={{ logos, navigation }} />
            </header>

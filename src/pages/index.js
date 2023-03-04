@@ -56,9 +56,7 @@ query MyQuery {
         name
         greeting
         greetingPicture {
-          file {
-            url
-          }
+          gatsbyImageData(width: 500, height: 500, jpegProgressive: true)
         }
       }
     }
@@ -102,10 +100,7 @@ query MyQuery {
         job
         mail
         contacmePhoto {
-          file {
-            fileName
-            url
-          }
+          gatsbyImageData(height: 500, width: 500)
         }
       }
     }

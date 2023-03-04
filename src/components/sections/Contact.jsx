@@ -5,11 +5,12 @@ import ContactMeSocialNetworks from "../ContactMeSocialNetworks"
 import { Icon } from "@mui/material"
 import { Gmail } from "@icons-pack/react-simple-icons"
 import { Phone } from '@mui/icons-material';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Contact = ({ contentfulContactMe }) => {
   const {  allContentfulSocialNetwork, allContentfulContactMe  } = contentfulContactMe
   const { fullname, job, mail, contacmePhoto, contactmedescription } = allContentfulContactMe.edges[0].node
-  
+  const image = getImage(contacmePhoto);
   return (
     <section className="w-full h-auto " id="contact">
     {/* Wrapper */}
@@ -19,9 +20,11 @@ const Contact = ({ contentfulContactMe }) => {
           <p className="text-basic md:text-xl lg:text-2xl"> {contactmedescription} </p>
           <div className="flex flex-row items-center md:items-start lg:flex-col justify-start mt-[3rem] mb-[2rem] ">
             <div  className="flex flex-wrap items-center w-full lg:flex-nowrap">
-              <img 
-                className=" lg:w-[30%] sm:h-[30%] w-[100%] max-h-[100%] max-w-[ 8.75rem]  h-30 rounded-xl mr-[4rem] mb-0 mb:mb-[2rem]"
-                src={`https://${contacmePhoto.file.url}`}
+              <GatsbyImage 
+                // className=" lg:w-[30%] sm:h-[30%] w-[100%] max-h-[100%] max-w-[ 8.75rem]  h-30 rounded-xl mr-[4rem] mb-0 mb:mb-[2rem]"
+                // src={`https://${contacmePhoto.file.url}`}
+                image={image}
+                loading='lazy'
                 alt='me profile'
               />
             
