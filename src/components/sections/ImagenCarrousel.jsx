@@ -1,11 +1,9 @@
-import { useTheme } from '@emotion/react';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { Box } from '@mui/system';
 import React from 'react'
 import SwipeableViews from 'react-swipeable-views';
 const  Images = SwipeableViews
 const ImagenCarrousel = ({ images }) => {
-    const theme = useTheme();
     const [currentImage, setCurrentImage] = React.useState(0);
     const allImages = images.length;
     const nextImage = () => {
