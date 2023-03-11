@@ -120,7 +120,7 @@ const Projects = () => {
                             <div className="flex flex-wrap md:flex-nowrap items-center justify-center pt-[2rem] w-full"> 
                               <motion.a 
                                 size="small"
-                                className=" flex float-left justify-center rounded-full py-4 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+                                className=" flex float-left justify-center rounded-full py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{  stiffness: 400, damping: 10 }}
                                 href={step.repository}
@@ -138,7 +138,7 @@ const Projects = () => {
                               </motion.a>    
                               <motion.a 
                                 size="small"
-                                className=" flex justify-center rounded-full float-right py-4 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+                                className=" flex justify-center rounded-full float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{  stiffness: 400, damping: 10 }}
                                 href={step.demo}
