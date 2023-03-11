@@ -1,20 +1,33 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import { KeyboardArrowLeft, KeyboardArrowRight, Launch } from '@mui/icons-material';
 import SwipeableViews from 'react-swipeable-views';
 import TechStack from '../TechStack';
 import {Github}  from "@icons-pack/react-simple-icons";
 import { motion } from 'framer-motion';
 import { Icon } from '@mui/material';
+import ImagenCarrousel from './ImagenCarrousel';
 
 
 const projects = [
   {
     label: 'The Clinic App',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    images: [
+      {
+        alt: 'img 1',
+        src: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+      {
+        alt: 'img 2',
+        src: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+      {
+        alt: 'img 3',
+        src: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+
+    ],
+
       techs: [
         {
           "name": "Angular",
@@ -51,8 +64,22 @@ const projects = [
   },
   {
     label: 'Giphy-Clone',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    images: [
+      {
+        alt: 'img 1',
+        src: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+      {
+        alt: 'img 2',
+        src: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+      {
+        alt: 'img 3',
+        src: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60'
+      },
+
+    ],
+ 
       techs: [
         {
           "name": "React",
@@ -78,7 +105,6 @@ const projects = [
 
 
 const Projects = () => {
-  const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = projects.length;
   const handleNext = () => {
@@ -100,7 +126,6 @@ const Projects = () => {
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">Projects</p>
             <Box sx={{ maxWidth:'100%', flexGrow: 1 }}>
               <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
@@ -110,9 +135,9 @@ const Projects = () => {
                     {Math.abs(activeStep - index) <= 2 ? (
                       <div className='w-full h-full p-0 md:p-5 '>
                         <p className='flex justify-center font-mono text-2xl font-semibold text-center text-black dark:text-white'>{ step.label }</p>
-                        <div className='flex-col w-full h-full p-5 columns-1 md:columns-2 '>
+                        <div className='flex-col w-full h-full p-0 md:p-5 columns-1 md:columns-2 '>
                           <div className=''>
-                            <img className='w-full h-full rounded-lg' src={step.imgPath} alt={step.label} />
+                            <ImagenCarrousel images={ step.images} />
                           </div>
                           <div className='space-y-4'>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti, possimus dignissimos harum distinctio ut repellendus dolore similique blanditiis perspiciatis. Corporis unde et deserunt nulla nemo labore! Ducimus, quisquam dicta.</p>
@@ -163,25 +188,25 @@ const Projects = () => {
                 ))}
               </SwipeableViews>
               {(activeStep !== maxSteps - 1 )?
-              <Button
-                className='float-right font-mono text-white bg-black dark:bg-white dark:text-black hover:bg-black'
+              <button
+                className='float-right px-2 py-1 font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black'
                 size="small"
                 onClick={handleNext}
                 disabled={activeStep === maxSteps - 1 }
                     
               >
-                Next {theme.direction === 'rtl' ? (<KeyboardArrowLeft />) : (<KeyboardArrowRight />)}
-              </Button>:null}
+                Next <KeyboardArrowRight /> 
+              </button>:null}
                 
               {(activeStep !== 0 )?
-              <Button
-                className='float-left font-mono text-white bg-black dark:bg-white dark:text-black hover:bg-black' 
+              <button
+                className='float-left px-2 py-1 font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black' 
                 size="small"
                 onClick={handleBack}
                 disabled={activeStep === 0}
               >
-                {theme.direction === 'rtl' ? (<KeyboardArrowRight />) : (<KeyboardArrowLeft />)} Back
-              </Button>:null}
+                <KeyboardArrowLeft /> Back
+              </button>:null}
             </Box>
    
           </div>
