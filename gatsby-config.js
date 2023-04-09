@@ -7,9 +7,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
   const {
   author,
   siteTitle,
@@ -37,10 +37,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        // spaceId: process.env.SPACE_ID,
-        // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId:"yakbeysh0blf",
-        accessToken:"yP-r8cMOdzc2eJxDYYI3abX_6Nqzeb5i8W_LiOwL598",
+        spaceId:process.env.SPACE_ID,
+        accessToken:process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-image`,
