@@ -7,7 +7,7 @@ import React from 'react';
 const INITIAL_STATE = {
     isIntroDone:false,
     theme: null,
-    isSideBarOpen: false,
+    isDrawerOpen: false,
 }
 
 
@@ -19,8 +19,8 @@ const AppProvider = ({ children }) => {
     const onIntroDone = () => { 
         dispatch({type:'onIntroDone'})
     }
-    const onOpenSideBar = () => { 
-        dispatch({type:'onOpenSideBar'})
+    const onToggleDrawer = () => { 
+        dispatch({type:'onToggleDrawer'})
     }
     useEffect(() => { 
         
@@ -37,7 +37,7 @@ const AppProvider = ({ children }) => {
     return (
         <div className='flex-0'>
             
-            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onOpenSideBar }}>{children}</AppContext.Provider>
+            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onToggleDrawer }}>{children}</AppContext.Provider>
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import AppContext from '../context';
 const useUi = () => {
-  const { appState, toggleTheme, onOpenSideBar, onIntroDone } = useContext(AppContext);
-  const { theme, isSideBarOpen, isIntroDone  } = appState
+  const { appState, toggleTheme, onToggleDrawer, onIntroDone } = useContext(AppContext);
+  const { theme, isDrawerOpen, isIntroDone  } = appState
   const setTheme = () => {
     if (document.documentElement.classList.toggle('dark')) { 
       localStorage.theme = 'dark'
@@ -12,8 +12,8 @@ const useUi = () => {
       toggleTheme('light')
     }
   }
-  const openSideBar = () => {
-    onOpenSideBar()
+  const toggleDrawer = () => {
+    onToggleDrawer()
   }
 
   const doIntroDone = () => {
@@ -21,9 +21,9 @@ const useUi = () => {
   }
   return {
     theme,
-    isSideBarOpen,
+    isDrawerOpen,
     setTheme,
-    openSideBar,
+    toggleDrawer,
     isIntroDone,
     doIntroDone
 
