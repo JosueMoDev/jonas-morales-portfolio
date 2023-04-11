@@ -5,12 +5,8 @@ import { Download } from "@mui/icons-material";
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-const AboutMe = ({ contentfulGreeting }) => {
-  const { allContentfulGreeting, allContentfulSocialNetwork } =
-    contentfulGreeting;
-  const { greeting, greetingPicture, name } =
-    allContentfulGreeting.edges[0].node;
-  const image = getImage(greetingPicture);
+const AboutMe = ({ contentfulAboutMe }) => {
+  const { aboutMeData, socialNetworks } = contentfulAboutMe;
   return (
     <section className="w-full h-auto " id="about">
       {/* Wrapper */}
@@ -47,11 +43,11 @@ const AboutMe = ({ contentfulGreeting }) => {
                     <p className="text-3xl md:text-4xl lg:text-6xl">👋🏻</p>
                   </motion.div>
                 </div>
-                <p className="text-center md:text-start">I'm {name}</p>
+                <p className="text-center md:text-start">I'm {aboutMeData.shortName}</p>
               </div>
 
               <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-xl lg:text-2xl xl:text-3xl">
-                {greeting}
+                {aboutMeData.descriptionEn}
               </p>
             </div>
             <div className="w-full  grid justify-center  mb-[3rem] md:mb-0  mt-[1rem] space-y-5">
@@ -59,7 +55,7 @@ const AboutMe = ({ contentfulGreeting }) => {
                 Contact me here 👇🏻
               </p>
               <ContactMeSocialNetworks
-                socialNetworks={allContentfulSocialNetwork}
+                socialNetworks={socialNetworks}
               />
             </div>
           </motion.div>
@@ -70,7 +66,7 @@ const AboutMe = ({ contentfulGreeting }) => {
           >
             <GatsbyImage
               className="z-[1] pointer-events-none rounded-md"
-              image={image}
+              image={getImage(aboutMeData.photo)}
               loading="lazy"
               alt="me profile"
               width={"100%"}

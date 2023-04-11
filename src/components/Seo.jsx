@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from "react-helmet"
 
 const Seo = ({ logos } ) => {
-    const  lang ="en"
+  const  lang ="en"
   return (
       <Helmet
       htmlAttributes={{
@@ -11,7 +11,7 @@ const Seo = ({ logos } ) => {
       >
         <meta charSet="utf-8" />
         <title>Jonas Morales</title>
-        <link rel="icon" type="image/x-icon" href={ logos[1].file.url } />
+        {/* <link rel="icon" type="image/x-icon" href={ logos.darkLogo } /> */}
       
     </Helmet>
   )

@@ -1,43 +1,44 @@
 import React from "react";
 import AppProvider from "../context/AppProvider";
-
 import Layout from "../components/Layout";
-
 import Contact from "../components/sections/Contact";
 import AboutMe from "../components/sections/AboutMe";
 import Skills from "../components/sections/Skills";
 import Projects from "../components/sections/Projects";
 import { graphql } from "gatsby";
 import Seo from "../components/Seo";
+import {
+  getAllAboutMeContentfulData,
+  getAllMainContentfulData,
+  getAllProjectsContentfulData,
+} from "../helpers/getData";
 
 const IndexPage = ({ data }) => {
+  const { allContentfulAboutMe, allContentfulMain, allContentfulProjects } = data;
+  const { aboutMeData, skillsData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
   const {
-    allContentfulContactMe,
-    allContentfulMain,
-    allContentfulGreeting,
-    allContentfulSkills,
-    allContentfulSocialNetwork,
-    allContentfulProjects,
-  } = data;
+    logos,
+    navigation,
+    buttonsLabelMainEn,
+    buttonsLabelMainEs,
+  } = getAllMainContentfulData(allContentfulMain);
+  const allProjectsData = getAllProjectsContentfulData(allContentfulProjects);
 
   return (
     <AppProvider>
-      <Layout contentfulMain={allContentfulMain}>
-        <Seo logos={allContentfulMain.edges[0].node.logos} />
-        <AboutMe
-          contentfulGreeting={{
-            allContentfulGreeting,
-            allContentfulSocialNetwork,
-          }}
-        />
-        <Skills contenfulSkills={allContentfulSkills} />
-        <Projects contenfulProjects={allContentfulProjects} />
-        <Contact
-          contentfulContactMe={{
-            allContentfulSocialNetwork,
-            allContentfulContactMe,
-          }}
-        />
+      <Layout
+        contentfulMain={{
+          navigation,
+          buttonsLabelMainEn,
+          buttonsLabelMainEs,
+          logos
+        }}
+      >
+        <Seo logos={logos} />
+        <AboutMe contentfulAboutMe={{ aboutMeData, socialNetworks }} />
+        <Skills contenfulSkills={skillsData} />
+        <Projects contenfulProjects={ allProjectsData } />
+        <Contact contentfulContactMe={{ contactMe, socialNetworks }} />
       </Layout>
     </AppProvider>
   );
@@ -45,73 +46,74 @@ const IndexPage = ({ data }) => {
 export default IndexPage;
 export const query = graphql`
   query MyQuery {
-    allContentfulMain {
-      edges {
-        node {
-          navigation {
-            menu {
-              name
-              url
-            }
-          }
-          logos {
-            file {
-              url
-            }
-          }
-        }
-      }
-    }
-
-    allContentfulGreeting {
+    allContentfulAboutMe {
       edges {
         node {
           name
-          greeting
-          greetingPicture {
-            gatsbyImageData(width: 500, height: 500, jpegProgressive: true)
+          shortName
+          aboutMeAssets {
+            buttonsLabels {
+              descargar
+              download
+            }
+            cvEn
+            cvEs
+            email
+            profession
+            telephone
           }
-        }
-      }
-    }
-
-    allContentfulSkills {
-      edges {
-        node {
-          skills {
-            shownItems
+          aboutMeDescriptionEn {
+            aboutMeDescriptionEn
+          }
+          aboutMeDescriptionEs {
+            aboutMeDescriptionEs
+          }
+          aboutMePhoto {
+            gatsbyImageData(width: 2316, jpegProgressive: true, height: 3088)
+          }
+          techStack {
             techs {
               icon
               name
             }
+            shownItems
           }
-        }
-      }
-    }
-
-    allContentfulSocialNetwork {
-      edges {
-        node {
-          socialnetworks {
+          socialNetworks {
             socialnetwoksdata {
               icon
               name
               url
             }
           }
+          contactMePhoto {
+            gatsbyImageData(sizes: "2316", jpegProgressive: true, height: 2683)
+          }
         }
       }
     }
-
-    allContentfulContactMe {
+    allContentfulMain {
       edges {
         node {
-          contactmedescription
-          fullname
-          job
-          mail
-          contacmePhoto {
-            gatsbyImageData(height: 500, width: 500)
+          logos {
+            gatsbyImageData(width: 1600, jpegProgressive: true, height: 1600)
+          }
+          navigation {
+            menuEn {
+              name
+              url
+            }
+            menuEs {
+              name
+              url
+            }
+            buttonsLabel {
+              cerrar
+              close
+              themeDarkEn
+              themeDarkEs
+              themeLightEn
+              themeLightEs
+            }
           }
         }
       }
@@ -119,9 +121,20 @@ export const query = graphql`
     allContentfulProjects {
       edges {
         node {
-          name
+          assets {
+            deployDemo
+            repositoryGithub
+            buttonsLabel {
+              backEn
+              backEs
+              nextEn
+              nextEs
+              repositoryEn
+              repositoryEs
+            }
+          }
           photos {
-            gatsbyImageData(width: 1440, height: 781)
+            gatsbyImageData(width: 1440, height: 781, jpegProgressive: true)
           }
           techs {
             techs {
@@ -129,12 +142,12 @@ export const query = graphql`
               name
             }
           }
+          name
           descriptionEn {
             descriptionEn
           }
-          assets {
-            deployDemo
-            repositoryGithub
+          descriptionEs {
+            descriptionEs
           }
         }
       }

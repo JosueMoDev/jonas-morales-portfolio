@@ -12,19 +12,9 @@ import { motion } from "framer-motion";
 import { Icon } from "@mui/material";
 import ImagenCarrousel from "./ImagenCarrousel";
 
-const Projects = ({ contenfulProjects }) => {
-  const allProjects = [...contenfulProjects.edges]
-  const projects = allProjects.map(project => ({
-    name: project.node.name,
-    photos: project.node.photos,
-    techs: project.node.techs,
-    descriptionEn: project.node.descriptionEn.descriptionEn,
-    repository: project.node.assets.repositoryGithub,
-    deployDemo: project.node.assets.deployDemo
-  }))
-  
+const Projects = ({ contenfulProjects }) => { 
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = projects.length;
+  const maxSteps = contenfulProjects.length;
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -50,29 +40,29 @@ const Projects = ({ contenfulProjects }) => {
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
               >
-                {projects.map((project, index) => (
-                  <div key={project.name}>
+                {contenfulProjects.map(({ projectDetails, buttonsLabelEn, projectPhotos, buttonsLabelEs, buttonsValue }, index) => (
+                  <div key={index}>
                     {Math.abs(activeStep - index) <= maxSteps ? (
                       <div className="w-full h-full p-0 md:p-5 ">
-                        <p className="flex justify-center font-mono text-2xl font-semibold text-center text-black dark:text-white">
-                          {project.name}
+                        <p className="flex justify-center font-mono text-3xl font-semibold text-center text-black dark:text-white">
+                          { projectDetails.name }
                         </p>
                         <div className="flex-col w-full h-full p-0 md:p-5 columns-1 md:columns-2 ">
                           <div className="">
-                            <ImagenCarrousel images={project.photos} />
+                            <ImagenCarrousel images={projectPhotos} />
                           </div>
                           <div className="space-y-4">
                             <p>
-                             {project.descriptionEn}
+                             {projectDetails.descriptionEn}
                             </p>
-                            <TechStack techs={project.techs} />
-                            <div className="flex flex-wrap md:flex-nowrap items-center justify-center pt-[2rem] w-full">
+                            <TechStack techs={projectDetails.techs} />
+                            <div className="flex flex-wrap md:flex-nowrap space-x-5 items-center justify-center pt-[2rem] w-full">
                               <motion.a
                                 size="small"
                                 className=" flex float-left justify-center rounded-full py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ stiffness: 400, damping: 10 }}
-                                href={project.repository}
+                                href={buttonsValue.repository}
                                 target="_blank"
                                 rel="noreferrer"
                               >
@@ -85,7 +75,7 @@ const Projects = ({ contenfulProjects }) => {
                                       />
                                     </div>
                                     <p className="font-mono text-base">
-                                      Repository
+                                      {buttonsLabelEn.repositoryLabel}
                                     </p>
                                   </div>
                                 </div>
@@ -95,7 +85,7 @@ const Projects = ({ contenfulProjects }) => {
                                 className=" flex justify-center rounded-full float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ stiffness: 400, damping: 10 }}
-                                href={project.deployDemo}
+                                href={buttonsValue.deploy}
                                 target="_blank"
                                 rel="noreferrer"
                               >
@@ -121,24 +111,20 @@ const Projects = ({ contenfulProjects }) => {
               </SwipeableViews>
               {activeStep !== maxSteps - 1 ? (
                 <button
-                  className="float-right px-2 py-1 font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black"
+                  className="float-right font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black"
                   size="small"
                   onClick={handleNext}
                   disabled={activeStep === maxSteps - 1}
-                >
-                  Next <KeyboardArrowRight />
-                </button>
+                ><span className="flex justify-center px-2 py-1 text-base text-center"> next <KeyboardArrowRight /></span></button>
               ) : null}
 
               {activeStep !== 0 ? (
                 <button
-                  className="float-left px-2 py-1 font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black"
+                  className="float-left font-mono text-white bg-black rounded-md dark:bg-white dark:text-black hover:bg-black"
                   size="small"
                   onClick={handleBack}
                   disabled={activeStep === 0}
-                >
-                  <KeyboardArrowLeft /> Back
-                </button>
+                ><span className="flex justify-center px-2 py-1 text-base text-center"><KeyboardArrowLeft /> back</span></button>
               ) : null}
             </Box>
           </div>

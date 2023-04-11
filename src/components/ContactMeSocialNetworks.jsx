@@ -4,10 +4,9 @@ import { Icon } from "@mui/material";
 import * as icons from "@icons-pack/react-simple-icons";
 
 const ContactMeSocialNetworks = ({ socialNetworks }) => {
-  const { socialnetwoksdata } = socialNetworks.edges[0].node.socialnetworks;
   return (
     <div className="flex items-center content-center justify-center h-full space-x-5 text-center md:space-x-8 w-fit ">
-      {socialnetwoksdata.map(({ name, icon, url }) => (
+      {socialNetworks.map(({ name, icon, url }) => (
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}

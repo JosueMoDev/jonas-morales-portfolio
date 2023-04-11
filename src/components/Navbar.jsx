@@ -4,30 +4,28 @@ import useUi from "../hooks/useUI";
 import { Icon, Button } from "@mui/material";
 import { LightMode, DarkMode, Menu, Translate } from "@mui/icons-material";
 import SideDrawerComponent from "./SideDrawerComponent";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Navbar = ({ items }) => {
-  const { logos, navigation } = items;
+const Navbar = ({ navigationUtilis }) => {
+  const { logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs } = navigationUtilis;
   const { theme, isDrawerOpen, setTheme, toggleDrawer } = useUi();
-
+  const logo = theme === "dark" ? logos.darkLogo : logos.lightLogo;
   return (
     <>
       <nav className="flex items-center justify-between px-5 py-2 text-black bg-white rounded-b-sm shadow-sm md:py-5 md:px-10 h-fit dark:bg-black dark:text-white">
         <div className="w-fit h-fit">
           <Link className="w-fit h-fit" to="/#about">
-            <div className="w-14 h-14">
-              <img
-                className="bg-transparent "
-                src={`http:${
-                  theme === "dark" ? logos[1].file.url : logos[0].file.url
-                }`}
-                alt="logo"
-              />
-            </div>
+          <GatsbyImage
+              className="z-[1] pointer-events-none rounded-md w-12 h-12"
+              image={getImage(logo)}
+              loading="lazy"
+              alt="logo"
+          />
           </Link>
         </div>
         <div className="flex items-center justify-end space-x-10 ">
           <div className="hidden space-x-10 lg:flex">
-            {navigation.menu.map(({ name, url }) => (
+            {navigation.menuEn.map(({ name, url }) => (
               <Link
                 key={url}
                 className="font-mono text-base text-center text-black md:text-xl dark:text-white"

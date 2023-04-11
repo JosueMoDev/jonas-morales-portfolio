@@ -7,9 +7,7 @@ import React, { useEffect, useState } from "react"
 
 
 const Skills = ({ contenfulSkills }) => {
- 
-  const { shownItems,techs } = contenfulSkills.edges[0].node.skills
-
+  const {skills, shownItems} = contenfulSkills
   const [shownSkills, setShownSkills] = useState(shownItems)
   const iControls = useAnimation()
   const bControls = useAnimation()
@@ -26,7 +24,7 @@ const Skills = ({ contenfulSkills }) => {
     sequence()
   }, [shownSkills, iControls, bControls])
   
-  const showMoreItems = () => setShownSkills(shownSkills + techs.length)
+  const showMoreItems = () => setShownSkills(shownSkills + skills.length)
   return (
     <section className="w-full h-auto mt-[4rem]" id="skills">
     {/* Wrapper */}
@@ -36,7 +34,7 @@ const Skills = ({ contenfulSkills }) => {
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">Tech Stack</p>    
             <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-3">
-              {techs.slice(0, shownSkills).map(({ name, icon }, key) => (
+              {skills.slice(0, shownSkills).map(({ name, icon }, key) => (
                 <motion.div
                 key={key}
                 custom={key}

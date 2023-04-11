@@ -47,7 +47,7 @@ const SideDrawerComponent = ({ navigation }) => {
 
           <Divider className="bg-black dark:bg-white" />
           <List>
-            {navigation.menu.map(({ name, url }) => (
+            {navigation.menuEn.map(({ name, url }) => (
               <ListItem key={url} disablePadding>
                 <Link
                   onClick={toggleDrawer}
