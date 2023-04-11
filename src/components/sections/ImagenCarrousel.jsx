@@ -1,10 +1,10 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { Box } from "@mui/system";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
 const Images = SwipeableViews;
 const ImagenCarrousel = ({ images }) => {
-  console.log(images);
   const [currentImage, setCurrentImage] = React.useState(0);
   const allImages = images.length;
   const nextImage = () => {
@@ -27,14 +27,17 @@ const ImagenCarrousel = ({ images }) => {
       >
         {images.map((imagen, index) => (
           <div key={index}>
-            {Math.abs(currentImage - index) <= 2 ? (
+            {Math.abs(currentImage - index) <= allImages ? (
               <div className="w-full h-full p-0 ">
-                <img
-                  className="w-full h-full rounded-md"
-                  src={imagen.src}
-                  alt={imagen.alt}
+                <GatsbyImage
+                  className="z-[1] pointer-events-none rounded-md"
+                  image={getImage(imagen.gatsbyImageData)}
+                  loading="lazy"
+                  alt="me profile"
+                  width={"100%"}
+                  height={"100%"}
                 />
-                <div className="w-full aling-middle h-fit absolute top-[45%]">
+                <div className="w-full aling-middle h-fit z-[2] absolute top-[45%]">
                   {currentImage !== allImages - 1 ? (
                     <button
                       className="float-right font-mono rounded-lg  text-white bg-transparent  h-[4rem] w-[4rem] "
@@ -51,7 +54,7 @@ const ImagenCarrousel = ({ images }) => {
 
                   {currentImage !== 0 ? (
                     <button
-                      className="float-left font-mono rounded-lg text-white bg-transparent  h-[4rem] w-[4rem]  "
+                      className="float-left font-mono rounded-lg text-white  h-[4rem] w-[4rem]  "
                       onClick={previousImage}
                       disabled={currentImage === 0}
                     >

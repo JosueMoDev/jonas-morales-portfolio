@@ -1,12 +1,12 @@
 import React from 'react'
 import { Icon } from '@mui/material'
 import * as icons  from "@icons-pack/react-simple-icons";
-const TechStack = ({techs}) => {
+const TechStack = ({ techs }) => {
   return (
     <div className='flex justify-center'>
       Stack
        <div className='flex space-x-1 w-fit w-max-full h-fit'>
-          {techs.map(({ name, icon }) => (
+          {techs.techs.map(({ name, icon }) => (
                 <div key={name} className='flex items-center justify-center col-span-2 row-span-2 px-2 py-1 space-x-2 align-middle bg-gray-700 rounded-full w-fit dark:bg-white'>
                     <div className='flex items-center justify-center align-middle w-[1.2rem]  h-[1.2rem]  '> 
                       <i className='w-[1.2rem]  h-[1.2rem] flex items-center justify-center align-middle'>
