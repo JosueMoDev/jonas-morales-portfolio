@@ -2,10 +2,10 @@ import { useReducer, useEffect} from 'react';
 import { appReducer } from './appReducer';
 import AppContext from '.';
 import React from 'react';
-const themeSet = localStorage.theme || 'light'
+
 const INITIAL_STATE = {
     isIntroDone: false,
-    theme: themeSet ,
+    theme: 'light',
     isDrawerOpen: false,
     isEnLanguage: true
 }
