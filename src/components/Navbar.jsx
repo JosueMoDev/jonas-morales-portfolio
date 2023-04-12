@@ -7,9 +7,11 @@ import SideDrawerComponent from "./SideDrawerComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Navbar = ({ navigationUtilis }) => {
-  // , buttonsLabelMainEn, buttonsLabelMainEs
-  const { logos, navigation } = navigationUtilis;
-  const { theme, isDrawerOpen, setTheme, toggleDrawer, toogleLanguage, isEnLanguage  } = useUi();
+  
+  const { logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs} = navigationUtilis;
+  const { theme, isDrawerOpen, setTheme, toggleDrawer, toogleLanguage, isEnLanguage } = useUi();
+  const navigationBar = (isEnLanguage) ? navigation.menuEn : navigation.menuEs;
+  
   const logo = theme === "dark" ? logos.darkLogo : logos.lightLogo;
   return (
     <>
@@ -26,7 +28,7 @@ const Navbar = ({ navigationUtilis }) => {
         </div>
         <div className="flex items-center justify-end space-x-10 ">
           <div className="hidden space-x-10 lg:flex">
-            {navigation.menuEn.map(({ name, url }) => (
+            {navigationBar.map(({ name, url }) => (
               <Link
                 key={url}
                 className="font-mono text-base text-center text-black md:text-xl dark:text-white"
@@ -88,7 +90,7 @@ const Navbar = ({ navigationUtilis }) => {
           </div>
         </div>
       </nav>
-      {isDrawerOpen ? <SideDrawerComponent navigation={navigation} /> : null}
+      {isDrawerOpen ? <SideDrawerComponent navigation={{navigationBar, buttonsLabelMainEn, buttonsLabelMainEs}} /> : null}
     </>
   );
 };

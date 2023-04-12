@@ -3,16 +3,29 @@ export const getAllAboutMeContentfulData = (data) => {
     const allAboutMeData = allAboutMeContentfulData.map(({ node }) => ({
         aboutMeData: {
             shortName: node.shortName,
-            descriptionEn: node.aboutMeDescriptionEn.aboutMeDescriptionEn,
-            descriptionEs: node.aboutMeDescriptionEs.aboutMeDescriptionEs,
             photo: node.aboutMePhoto.gatsbyImageData,
-            buttonLabel: {
-                En: node.aboutMeAssets.buttonsLabels.download,
-                valueEn: node.aboutMeAssets.cvEn,
-                Es: node.aboutMeAssets.buttonsLabels.descargar,
-                valueEs: node.aboutMeAssets.cvEs
+            
+        },
+        localEn: {
+            greeting: "Hello",
+            person: "I'm",
+            contact:"Contact me here 👇🏻",
+            description: node.aboutMeDescriptionEn.aboutMeDescriptionEn,
+            buttons: {
+                label: node.aboutMeAssets.buttonsLabels.download,
+                value: node.aboutMeAssets.cvEn,
             }
         },
+        localEs: {
+            greeting: "Hola",
+            person: "soy",
+            contact:"Contáctame aquí 👇🏻",
+            description: node.aboutMeDescriptionEs.aboutMeDescriptionEs, 
+            buttons: {
+                label: node.aboutMeAssets.buttonsLabels.descargar,
+                value: node.aboutMeAssets.cvEs
+            }
+        }, 
         skillsData: {
             skills: node.techStack.techs,
             shownItems:node.techStack.shownItems
@@ -26,8 +39,8 @@ export const getAllAboutMeContentfulData = (data) => {
             photo:node.contactMePhoto.gatsbyImageData
         }
     }));
-    const [ aboutMeData, skillsData, socialNetworks, contactMe ] = allAboutMeData;
-    return { ...aboutMeData, ...skillsData, ...socialNetworks, ...contactMe } 
+    const [ aboutMeData, localEn, localEs, skillsData, socialNetworks, contactMe ] = allAboutMeData;
+    return { ...aboutMeData, ...skillsData, ...localEn, ...localEs,...socialNetworks, ...contactMe } 
 }
 export const getAllMainContentfulData = (data) => {
     const allMainContentfulData = data.edges
@@ -42,13 +55,13 @@ export const getAllMainContentfulData = (data) => {
         },
         buttonsLabelMainEn: {
             close: node.navigation.buttonsLabel.close,
-            setDart: node.navigation.buttonsLabel.themeDarkEn,
+            setDark: node.navigation.buttonsLabel.themeDarkEn,
             setLight: node.navigation.buttonsLabel.themeLightEn
         },
         buttonsLabelMainEs: {
             close: node.navigation.buttonsLabel.cerrar,
-            setDart: node.navigation.buttonsLabel.activarOscuro,
-            setLight: node.navigation.buttonsLabel.activarClaro
+            setDark: node.navigation.buttonsLabel.themeDarkEs,
+            setLight: node.navigation.buttonsLabel.themeLightEs
         }
     }))
     const [logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs] = allMainData;

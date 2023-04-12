@@ -15,7 +15,7 @@ import {
 
 const IndexPage = ({ data }) => {
   const { allContentfulAboutMe, allContentfulMain, allContentfulProjects } = data;
-  const { aboutMeData, skillsData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
+  const { aboutMeData, localEn, localEs, skillsData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
   const {
     logos,
     navigation,
@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
         }}
       >
         <Seo logos={logos} />
-        <AboutMe contentfulAboutMe={{ aboutMeData, socialNetworks }} />
+        <AboutMe contentfulAboutMe={{ aboutMeData, socialNetworks, localEn, localEs }} />
         <Skills contenfulSkills={skillsData} />
         <Projects contenfulProjects={ allProjectsData } />
         <Contact contentfulContactMe={{ contactMe, socialNetworks }} />

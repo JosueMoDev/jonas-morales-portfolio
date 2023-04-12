@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 
 const SideDrawerComponent = ({ navigation }) => {
   const { theme,  isDrawerOpen, setTheme,  toggleDrawer, isEnLanguage, toogleLanguage } = useUi();
-
+  const buttons = (isEnLanguage) ? navigation.buttonsLabelMainEn : navigation.buttonsLabelMainEs;
   return (
     <div className="w-full w-min-[70%]  h-full">
       <SwipeableDrawer
@@ -25,7 +25,7 @@ const SideDrawerComponent = ({ navigation }) => {
         onOpen={() => toggleDrawer()}
       >
         <Box
-          sx={{ width: "300px", height: "100%" }}
+          sx={{ width: "320px", height: "100%" }}
           className="text-black bg-white dark:text-white dark:bg-black"
         >
           <div className="flex justify-end w-full grid-cols-2 p-1 justify-items-stretch">
@@ -40,14 +40,14 @@ const SideDrawerComponent = ({ navigation }) => {
                 sx={{ width: "50%", height: "50%" }}
               />
               <span className="font-mono text-xs text-black capitalize dark:text-white">
-                Close
+                {buttons.close}
               </span>
             </Button>
           </div>
 
           <Divider className="bg-black dark:bg-white" />
           <List>
-            {navigation.menuEn.map(({ name, url }) => (
+            {navigation.navigationBar.map(({ name, url }) => (
               <ListItem key={url} disablePadding>
                 <Link
                   onClick={toggleDrawer}
@@ -76,8 +76,8 @@ const SideDrawerComponent = ({ navigation }) => {
                     sx={{ width: "100%", height: "100%" }}
                   />
                 </div>
-                <p className="font-mono text-base">
-                  Set {theme === "dark" ? "Light" : "Dark"} Mode
+                <p className="w-full font-mono text-base">
+                  {theme === "dark"?buttons.setDark:buttons.setLight}
                 </p>
               </div>
             </div>

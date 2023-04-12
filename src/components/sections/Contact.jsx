@@ -36,7 +36,7 @@ const Contact = ({ contentfulContactMe }) => {
                       <div className="flex flex-wrap md:flex-nowrap items-center justify-center pt-[2rem] w-full"> 
                         <motion.a 
                           size="small"
-                          className=" flex justify-center rounded-full py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+                          className=" flex justify-center rounded-md py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                           whileHover={{ scale: 1.05 }}
                           transition={{  stiffness: 400, damping: 10 }}
                           href={`mailto:${contactMe.email}`}
@@ -48,13 +48,13 @@ const Contact = ({ contentfulContactMe }) => {
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#EA4335]" component={Gmail}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                            <p className="text-[0.8rem]   md:text-lg lg:text-xl xl:text-2xl ">{ contactMe.email }</p>
+                            <p className="text-lg ">{ contactMe.email }</p>
                           </div>
                         </div>
                         </motion.a>    
                         <motion.a 
                           size="small"
-                          className=" flex justify-center rounded-full py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+                          className=" flex justify-center rounded-md py-4 items-center md:m-2 w-full mb-[1.5rem] p-2 md:px-4 text-lg  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                           whileHover={{ scale: 1.05 }}
                           transition={{  stiffness: 400, damping: 10 }}
                           href={`tel:+503 ${contactMe.telephone}`}
@@ -64,7 +64,7 @@ const Contact = ({ contentfulContactMe }) => {
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#5bb15c]" component={Phone}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                              <p className="font-mono text-sm md:text-lg lg:text-xl xl:text-2xl">+503 { contactMe.telephone }</p>
+                              <p className="font-mono text-lg">+503 { contactMe.telephone }</p>
                           </div>
                         </div>
                       </motion.a>   
