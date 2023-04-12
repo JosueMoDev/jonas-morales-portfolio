@@ -14,7 +14,7 @@ import { LightMode, DarkMode, Translate, Close } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
 const SideDrawerComponent = ({ navigation }) => {
-  const { theme,  isDrawerOpen, setTheme,  toggleDrawer } = useUi();
+  const { theme,  isDrawerOpen, setTheme,  toggleDrawer, isEnLanguage, toogleLanguage } = useUi();
 
   return (
     <div className="w-full w-min-[70%]  h-full">
@@ -83,6 +83,7 @@ const SideDrawerComponent = ({ navigation }) => {
             </div>
           </motion.a>
           <motion.a
+            onClick={toogleLanguage}
             size="small"
             className=" flex justify-center rounded-full float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 px-2 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
             whileHover={{ scale: 1.05 }}
@@ -96,7 +97,7 @@ const SideDrawerComponent = ({ navigation }) => {
                     sx={{ width: "100%", height: "100%" }}
                   />
                 </div>
-                <p className="font-mono text-base">Es</p>
+                <p className="font-mono text-base">{(isEnLanguage)?'En':'Es'}</p>
               </div>
             </div>
           </motion.a>

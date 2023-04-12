@@ -115,7 +115,7 @@ const Projects = ({ contenfulProjects }) => {
                   size="small"
                   onClick={handleNext}
                   disabled={activeStep === maxSteps - 1}
-                ><span className="flex justify-center px-2 py-1 text-base text-center"> next <KeyboardArrowRight /></span></button>
+                  ><span className="flex justify-center p-1 space-x-1 text-base text-center align-middle"><span className="flex justify-center pl-2 text-base text-center">Next<KeyboardArrowRight /></span></span></button>
               ) : null}
 
               {activeStep !== 0 ? (
@@ -124,7 +124,7 @@ const Projects = ({ contenfulProjects }) => {
                   size="small"
                   onClick={handleBack}
                   disabled={activeStep === 0}
-                ><span className="flex justify-center px-2 py-1 text-base text-center"><KeyboardArrowLeft /> back</span></button>
+                ><span className="flex justify-center p-1 space-x-1 text-base text-center align-middle"><KeyboardArrowLeft/> <span className="flex justify-center pr-2 text-base text-center">Back</span></span></button>
               ) : null}
             </Box>
           </div>

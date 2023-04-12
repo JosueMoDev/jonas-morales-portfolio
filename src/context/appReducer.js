@@ -6,7 +6,10 @@ export const appReducer = (state, action) => {
         case 'onIntroDone':
             return { ...state, isIntroDone: true }
         case 'onToggleDrawer':
-            return {...state, isDrawerOpen:!state.isDrawerOpen }
+            return { ...state, isDrawerOpen: !state.isDrawerOpen }
+        case 'onToggleLanguage':
+            return { ...state, isEnLanguage: !state.isEnLanguage }
+            
         default:
             return state;
     }

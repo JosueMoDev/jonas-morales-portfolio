@@ -5,9 +5,10 @@ import React from 'react';
 
 
 const INITIAL_STATE = {
-    isIntroDone:false,
+    isIntroDone: false,
     theme: null,
     isDrawerOpen: false,
+    isEnLanguage: true
 }
 
 
@@ -21,6 +22,9 @@ const AppProvider = ({ children }) => {
     }
     const onToggleDrawer = () => { 
         dispatch({type:'onToggleDrawer'})
+    }
+    const onToggleLanguage = () => { 
+        dispatch({type:'onToggleLanguage'})
     }
     useEffect(() => { 
         
@@ -36,8 +40,7 @@ const AppProvider = ({ children }) => {
     },[])
     return (
         <div className='flex-0'>
-            
-            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onToggleDrawer }}>{children}</AppContext.Provider>
+            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onToggleDrawer, onToggleLanguage }}>{children}</AppContext.Provider>
         </div>
     )
 }

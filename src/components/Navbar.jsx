@@ -7,8 +7,9 @@ import SideDrawerComponent from "./SideDrawerComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Navbar = ({ navigationUtilis }) => {
-  const { logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs } = navigationUtilis;
-  const { theme, isDrawerOpen, setTheme, toggleDrawer } = useUi();
+  // , buttonsLabelMainEn, buttonsLabelMainEs
+  const { logos, navigation } = navigationUtilis;
+  const { theme, isDrawerOpen, setTheme, toggleDrawer, toogleLanguage, isEnLanguage  } = useUi();
   const logo = theme === "dark" ? logos.darkLogo : logos.lightLogo;
   return (
     <>
@@ -70,6 +71,7 @@ const Navbar = ({ navigationUtilis }) => {
             </div>
             <div className="hidden lg:flex">
               <Button
+                onClick={toogleLanguage}
                 size="small"
                 className="flex-col justify-center  align-middle  w-[0.8rem] h-fit md:w-[1rem] md:h-fit hover:dark:bg-gray-900 hover:bg-gray-100"
               >
@@ -79,7 +81,7 @@ const Navbar = ({ navigationUtilis }) => {
                   sx={{ width: "50%", height: "50%" }}
                 />
                 <span className="font-mono text-sm text-black capitalize dark:text-white">
-                  Es
+                {(isEnLanguage)?'En':'Es'}
                 </span>
               </Button>
             </div>

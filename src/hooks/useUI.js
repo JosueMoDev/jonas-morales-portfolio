@@ -1,33 +1,42 @@
-import { useContext } from 'react';
-import AppContext from '../context';
+import { useContext } from "react";
+import AppContext from "../context";
 const useUi = () => {
-  const { appState, toggleTheme, onToggleDrawer, onIntroDone } = useContext(AppContext);
-  const { theme, isDrawerOpen, isIntroDone  } = appState
+  const {
+    appState,
+    toggleTheme,
+    onToggleDrawer,
+    onIntroDone,
+    onToggleLanguage,
+  } = useContext(AppContext);
+  const { theme, isDrawerOpen, isIntroDone, isEnLanguage } = appState;
   const setTheme = () => {
-    if (document.documentElement.classList.toggle('dark')) { 
-      localStorage.theme = 'dark'
-      toggleTheme('dark')
+    if (document.documentElement.classList.toggle("dark")) {
+      localStorage.theme = "dark";
+      toggleTheme("dark");
     } else {
-      localStorage.theme =' light'
-      toggleTheme('light')
+      localStorage.theme = " light";
+      toggleTheme("light");
     }
-  }
+  };
   const toggleDrawer = () => {
-    onToggleDrawer()
-  }
-
+    onToggleDrawer();
+  };
+  const toogleLanguage = () => {
+    onToggleLanguage();
+  };
   const doIntroDone = () => {
-    onIntroDone()
-  }
+    onIntroDone();
+  };
   return {
     theme,
     isDrawerOpen,
+    isIntroDone,
+    isEnLanguage,
+    // ? Methods
     setTheme,
     toggleDrawer,
-    isIntroDone,
-    doIntroDone
-
-  }
-
-}
+    doIntroDone,
+    toogleLanguage,
+  };
+};
 export default useUi;
