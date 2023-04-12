@@ -13,9 +13,7 @@ const INITIAL_STATE = {
 
 
 const AppProvider = ({ children }) => {
-    const [appState, dispatch] = useReducer(appReducer, INITIAL_STATE)
-    const system =(window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'
-    appState.theme = localStorage.theme || system;
+    const [appState, dispatch] = useReducer( appReducer, INITIAL_STATE)
     const toggleTheme = (theme) => {
         dispatch({type:'toggleTheme', payload:{theme}})
     }
@@ -29,6 +27,7 @@ const AppProvider = ({ children }) => {
         dispatch({type:'onToggleLanguage'})
     }
     useEffect(() => { 
+        
         const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
         if (localStorage.theme === 'dark' || systemTheme ) {
             document.documentElement.classList.add('dark');
