@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 
 import { motion, useAnimation } from "framer-motion";
 import IntroScreen from "./IntroScreen";
-
 const Layout = ({ children, contentfulMain }) => {
   const { navigation, logos, buttonsLabelMainEn, buttonsLabelMainEs } = contentfulMain;
   const { isIntroDone, doIntroDone, theme } = useUi();
@@ -25,6 +24,7 @@ const Layout = ({ children, contentfulMain }) => {
     };
     pageLoadSequence();
   }, [isIntroDone, gControls, doIntroDone]);
+
   return (
     <>
       {!isIntroDone ? (

@@ -3,7 +3,6 @@ import { appReducer } from './appReducer';
 import AppContext from '.';
 import React from 'react';
 
-
 const INITIAL_STATE = {
     isIntroDone: false,
     theme: null,
@@ -39,8 +38,9 @@ const AppProvider = ({ children }) => {
           }
     },[])
     return (
+        
         <div className='flex-0'>
-            <AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onToggleDrawer, onToggleLanguage }}>{children}</AppContext.Provider>
+            {(appState.theme)&&<AppContext.Provider value={{ appState, toggleTheme, onIntroDone, onToggleDrawer, onToggleLanguage }}>{children}</AppContext.Provider>}
         </div>
     )
 }
