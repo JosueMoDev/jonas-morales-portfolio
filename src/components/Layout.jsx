@@ -6,9 +6,10 @@ import { motion, useAnimation } from "framer-motion";
 import IntroScreen from "./IntroScreen";
 
 const Layout = ({ children, contentfulMain }) => {
-  const { navigation, logos, buttonsLabelMainEn, buttonsLabelMainEs } =
-    contentfulMain;
-  const { isIntroDone, doIntroDone } = useUi();
+  const { navigation, logos, buttonsLabelMainEn, buttonsLabelMainEs } = contentfulMain;
+  const { isIntroDone, doIntroDone, theme } = useUi();
+
+  const logo = theme === "dark" ? logos.darkLogo : logos.lightLogo;
   const gControls = useAnimation();
   useEffect(() => {
     const pageLoadSequence = async () => {
@@ -28,7 +29,7 @@ const Layout = ({ children, contentfulMain }) => {
   return (
     <>
       {!isIntroDone ? (
-        <IntroScreen logos={logos} />
+        <IntroScreen logo={logo} />
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
