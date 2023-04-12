@@ -2,11 +2,12 @@ import { useReducer, useEffect} from 'react';
 import { appReducer } from './appReducer';
 import AppContext from '.';
 import React from 'react';
-
-
+const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const systemTheModo = (systemPreference)?'dark':'light'
+const themeSet = localStorage.theme || systemTheModo
 const INITIAL_STATE = {
     isIntroDone: false,
-    theme: null,
+    theme: themeSet ,
     isDrawerOpen: false,
     isEnLanguage: true
 }
@@ -28,7 +29,7 @@ const AppProvider = ({ children }) => {
     }
     useEffect(() => { 
         
-        const systemTheme = (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        const systemTheme = (!('theme' in localStorage) && systemPreference )
         if (localStorage.theme === 'dark' || systemTheme ) {
             document.documentElement.classList.add('dark');
             dispatch({type:'toggleTheme', payload:{theme:'dark'}})
