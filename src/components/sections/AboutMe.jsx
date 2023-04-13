@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Icon } from "@mui/material";
+import {  Chip, Divider, Icon } from "@mui/material";
 import { Download } from "@mui/icons-material";
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
@@ -82,11 +82,17 @@ const AboutMe = ({ contentfulAboutMe }) => {
           <div className="flex flex-wrap items-center justify-center h-full align-middle md:space-x-1 md:flex-nowrap">
             <div className=" w-fit mx-2  grid justify-center  mb-[3rem] md:mb-0  mt-[1rem] space-y-5">
               <ContactMeSocialNetworks socialNetworks={socialNetworks} />
-            </div>
-
+              </div>
+              <div className="hidden lg:flex">
+                <Divider  orientation="vertical"  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={'or'} /></Divider>
+              </div>
+              <div className="w-full lg:hidden">
+               <Divider  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={'or'} /></Divider>
+              </div>
+              
             <motion.a
               size="small"
-              className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+              className=" flex justify-center rounded-md mt-5 lg:mt-0 float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               href={aboutMe.buttons.value}
@@ -104,7 +110,7 @@ const AboutMe = ({ contentfulAboutMe }) => {
                   <p className="font-mono text-base">{aboutMe.buttons.label}</p>
                 </div>
               </div>
-            </motion.a>
+              </motion.a>
           </div>
         </div>
       </div>

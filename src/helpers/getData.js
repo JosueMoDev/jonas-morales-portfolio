@@ -77,16 +77,8 @@ export const getAllProjectsContentfulData = (data) => {
             descriptionEs: node.descriptionEs.descriptionEs,
             techs: node.techs
         },
-        buttonsLabelEn: {
-            repositoryLabel: node.assets.buttonsLabel.repositoryEn,
-            back: node.assets.buttonsLabel.backEn,
-            next: node.assets.buttonsLabel.nextEn
-        },
-        buttonsLabelEs: {
-            repositoryLabel: node.assets.buttonsLabel.repositoryEs,
-            back: node.assets.buttonsLabel.backEs,
-            next: node.assets.buttonsLabel.nextEs
-        },
+        buttonsLabelEn:'Reposotory',
+        buttonsLabelEs:'Repositorio',
         buttonsValue: {
             repository: node.assets.repositoryGithub,
             deploy:node.assets.deployDemo

@@ -2,7 +2,7 @@ import * as icons from "@icons-pack/react-simple-icons";
 import { Icon, SvgIcon } from "@mui/material";
 import { useAnimation, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import {ExpandLess, ExpandMore} from "@mui/icons-material";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 const Skills = ({ contenfulSkills }) => {
   const { skills, shownItems } = contenfulSkills;
@@ -25,17 +25,17 @@ const Skills = ({ contenfulSkills }) => {
 
   const showMoreItems = () => {
     loadAllSkills(true);
-    setShownSkills(shownSkills + skills.length)
+    setShownSkills(shownSkills + skills.length);
   };
   const showLessItems = () => {
     loadAllSkills(false);
-    setShownSkills(shownItems)
-  }
+    setShownSkills(shownItems);
+  };
   return (
     <section className="w-full h-auto mt-[4rem]" id="skills">
       {/* Wrapper */}
       {/*  */}
-      <div className="flex m-[auto]  p-[1.25rem] md:p-[2.5rem] min-h-[100vh] mb-[6rem] font-mono flex-row justify-between w-full h-auto text-black dark:text-white md:flex-col">
+      <div className="flex m-[auto]  p-[1.25rem] md:p-[2.5rem] min-h-full mb-[3rem] font-mono flex-row justify-between w-full h-auto text-black dark:text-white md:flex-col">
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">
@@ -71,43 +71,43 @@ const Skills = ({ contenfulSkills }) => {
                 animate={bControls}
                 className="flex justify-center w-full pt-5 text-center"
               >
-                {(!isAllSkillsLoaded)?
-                (<button
-                onClick={() => showMoreItems()}
-                type="button"
-                className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
-                >
-                  <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
-                    <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                      <p className="font-mono text-base">Load More</p>
-                      <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
-                        <Icon
-                          component={ExpandMore}
-                          sx={{ width: "100%", height: "100%" }}
+                {!isAllSkillsLoaded ? (
+                  <button
+                    onClick={() => showMoreItems()}
+                    type="button"
+                    className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
+                  >
+                    <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
+                      <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
+                        <p className="font-mono text-base">Load More</p>
+                        <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
+                          <Icon
+                            component={ExpandMore}
+                            sx={{ width: "100%", height: "100%" }}
                           />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  </button>)
-                  :   (<button
+                  </button>
+                ) : (
+                  <button
                     onClick={() => showLessItems()}
                     type="button"
                     className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
-                    >
-                      <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
-                        <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                          <p className="font-mono text-base">Show Less</p>
-                          <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
-                            <Icon
-                              component={ExpandLess}
-                              sx={{ width: "100%", height: "100%" }}
-                              />
-                          </div>
+                  >
+                    <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
+                      <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
+                        <p className="font-mono text-base">Show Less</p>
+                        <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
+                          <Icon
+                            component={ExpandLess}
+                            sx={{ width: "100%", height: "100%" }}
+                          />
                         </div>
                       </div>
-                      </button>)
-                  
-              }
+                    </div>
+                  </button>
+                )}
               </motion.div>
             )}
           </div>

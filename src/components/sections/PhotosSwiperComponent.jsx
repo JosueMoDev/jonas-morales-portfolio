@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import { EffectCreative, Pagination } from "swiper";
 
-const ImagenCarrousel = ({ images }) => {
+const PhotosSwiperComponent= ({ images }) => {
   return (
     <Box sx={{ maxWidth: "100%", maxHeight: "100%", flexGrow: 1 }}>
       <Swiper
@@ -43,4 +43,4 @@ const ImagenCarrousel = ({ images }) => {
   );
 };
 
-export default ImagenCarrousel;
+export default PhotosSwiperComponent;

@@ -125,10 +125,6 @@ export const query = graphql`
             deployDemo
             repositoryGithub
             buttonsLabel {
-              backEn
-              backEs
-              nextEn
-              nextEs
               repositoryEn
               repositoryEs
             }

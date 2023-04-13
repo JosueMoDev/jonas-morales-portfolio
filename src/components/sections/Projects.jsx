@@ -7,7 +7,7 @@ import TechStack from "../TechStack";
 import { Github } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 import { Icon } from "@mui/material";
-import ImagenCarrousel from "./ImagenCarrousel";
+import PhotosSwiperComponent from "./PhotosSwiperComponent";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,7 +17,7 @@ import "swiper/css/navigation";
 const Projects = ({ contenfulProjects }) => {
   return (
     <section className="w-full h-auto mt-[4rem]" id="projects">
-      <div className="flex m-[auto]  p-[1.25rem] md:p-[2.5rem] min-h-[100vh] mb-[6rem] font-mono flex-row justify-between w-full h-auto text-black dark:text-white md:flex-col">
+      <div className="flex m-[auto]  p-[1.25rem] md:p-[2.5rem] min-h-full mb-[3rem] font-mono flex-row justify-between w-full h-auto text-black dark:text-white md:flex-col">
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="felx-col w-max-[50%] w-full">
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">
@@ -50,7 +50,7 @@ const Projects = ({ contenfulProjects }) => {
                         </p>
                         <div className="flex-col w-full h-full p-0 md:p-5 columns-1 md:columns-2 ">
                           <div className="">
-                            <ImagenCarrousel images={projectPhotos} />
+                            <PhotosSwiperComponent images={projectPhotos} />
                           </div>
                           <div className="space-y-4">
                             <p className="text-justify ">{projectDetails.descriptionEn}</p>
@@ -74,12 +74,12 @@ const Projects = ({ contenfulProjects }) => {
                                       />
                                     </div>
                                     <p className="font-mono text-base">
-                                      {buttonsLabelEn.repositoryLabel}
+                                      {buttonsLabelEn}
                                     </p>
                                   </div>
                                 </div>
                               </motion.a>
-                              <motion.a
+                              {(buttonsValue.deploy)&&(<motion.a
                                 size="small"
                                 className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
                                 whileHover={{ scale: 1.05 }}
@@ -99,7 +99,7 @@ const Projects = ({ contenfulProjects }) => {
                                     <p className="font-mono text-base">Demo</p>
                                   </div>
                                 </div>
-                              </motion.a>
+                              </motion.a>)}
                             </div>
                           </div>
                         </div>
