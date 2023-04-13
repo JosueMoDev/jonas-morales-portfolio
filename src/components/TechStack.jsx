@@ -20,7 +20,7 @@ const TechStack = ({ techs }) => {
                 />
               </i>
             </div>
-            <span className="hidden w-full font-mono text-sm font-thin text-white xl:flex dark:text-black">
+            <span className="hidden w-full font-mono font-thin text-white lg:text-xs xl:text-sm lg:flex dark:text-black">
               {name}
             </span>
           </div>

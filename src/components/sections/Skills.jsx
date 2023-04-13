@@ -56,7 +56,7 @@ const Skills = ({ contenfulSkills }) => {
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
                     <SvgIcon
-                      sx={{ width: "3rem", height: "3rem" }}
+                      sx={{ width: "4rem", height: "4rem" }}
                       component={icons[`${icon}`]}
                       inheritViewBox
                     />
