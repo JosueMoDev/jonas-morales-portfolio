@@ -15,7 +15,6 @@ const Contact = ({ contentfulContactMe }) => {
       <div  className=" text-black dark:text-white m-[auto]  font-mono p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
         <div className="flex-col xl:mt-[4rem] mt-[3rem] md:space-x-10">
           <p className="text-xl font-semibold md:text-3xl lg:text-4xl xl:text-6xl">Would you like contact me ?</p>
-          {/* <p className="text-basic md:text-xl lg:text-2xl"> {contactmedescription} </p> */}
           <div className="flex flex-row items-center md:items-start lg:flex-col justify-start mt-[3rem] mb-[2rem] ">
             <div  className="flex flex-wrap items-center justify-center w-full lg:flex-nowrap">
               <GatsbyImage 
@@ -48,7 +47,7 @@ const Contact = ({ contentfulContactMe }) => {
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#EA4335]" component={Gmail}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                            <p className="text-lg ">{ contactMe.email }</p>
+                            <p className="text-base">{ contactMe.email }</p>
                           </div>
                         </div>
                         </motion.a>    
@@ -64,7 +63,7 @@ const Contact = ({ contentfulContactMe }) => {
                             <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                               <Icon className="text-[#5bb15c]" component={Phone}  sx={{ width:'100%', height:'100%'}}  />
                             </div>
-                              <p className="font-mono text-lg">+503 { contactMe.telephone }</p>
+                              <p className="font-mono text-base">+503 { contactMe.telephone }</p>
                           </div>
                         </div>
                       </motion.a>   
