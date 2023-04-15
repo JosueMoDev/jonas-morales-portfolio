@@ -11,7 +11,7 @@ const Seo = ({ logos } ) => {
       >
         <meta charSet="utf-8" />
         <title>Jonas Morales</title>
-        {/* <link rel="icon" type="image/x-icon" href={ logos.darkLogo } /> */}
+        <link rel="icon" type="image/x-icon" href='logo.jpg' />
       
     </Helmet>
   )

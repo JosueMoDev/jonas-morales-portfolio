@@ -3,8 +3,10 @@ import { Icon, SvgIcon } from "@mui/material";
 import { useAnimation, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import useUi from "../../hooks/useUI";
 
 const Skills = ({ contenfulSkills }) => {
+  const { isEnLanguage } = useUi()
   const { skills, shownItems } = contenfulSkills;
   const [shownSkills, setShownSkills] = useState(shownItems);
   const [isAllSkillsLoaded, loadAllSkills] = useState(false);
@@ -39,7 +41,7 @@ const Skills = ({ contenfulSkills }) => {
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">
-              Tech Stack
+              {(isEnLanguage)?"Skills":"Habilidades"}
             </p>
             <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-3">
               {skills.slice(0, shownSkills).map(({ name, icon }, key) => (
@@ -79,7 +81,7 @@ const Skills = ({ contenfulSkills }) => {
                   >
                     <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
                       <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                        <p className="font-mono text-base">Load More</p>
+                        <p className="font-mono text-base">{(isEnLanguage)?"Show More":"Mostrar Más"}</p>
                         <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                           <Icon
                             component={ExpandMore}
@@ -97,7 +99,7 @@ const Skills = ({ contenfulSkills }) => {
                   >
                     <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
                       <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                        <p className="font-mono text-base">Show Less</p>
+                        <p className="font-mono text-base">{(isEnLanguage)?"Show Less":"Mostrar Menos"}</p>
                         <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
                           <Icon
                             component={ExpandLess}

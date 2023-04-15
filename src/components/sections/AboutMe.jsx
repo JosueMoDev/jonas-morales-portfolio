@@ -87,7 +87,7 @@ const AboutMe = ({ contentfulAboutMe }) => {
                 <Divider  orientation="vertical"  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={'or'} /></Divider>
               </div>
               <div className="w-full lg:hidden">
-               <Divider  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={'or'} /></Divider>
+               <Divider  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={(isEnLanguage)?'or':'ó'} /></Divider>
               </div>
               
             <motion.a

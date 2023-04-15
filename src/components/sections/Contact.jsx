@@ -5,16 +5,19 @@ import { Chip, Divider, Icon } from "@mui/material";
 import { Gmail } from "@icons-pack/react-simple-icons";
 import { Phone } from "@mui/icons-material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import useUi from "../../hooks/useUI";
 
 const Contact = ({ contentfulContactMe }) => {
   const { contactMe, socialNetworks } = contentfulContactMe;
+  const { isEnLanguage } = useUi();
+
   return (
     <section className="w-full h-auto " id="contact">
       {/* Wrapper */}
       <div className=" text-black dark:text-white m-[auto]  font-mono p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
         <div className="flex-col xl:mt-[4rem] mt-[3rem] md:space-x-10">
           <p className="text-xl font-semibold md:text-3xl lg:text-4xl xl:text-6xl">
-            Would you like contact me ?
+            {(isEnLanguage) ? 'Would you like contact me ?' : '¿Te gustaría contactarme?'}
           </p>
           <div className="flex flex-row items-center md:items-start lg:flex-col justify-start mt-[3rem] mb-[2rem] ">
             <div className="flex flex-wrap items-center justify-center w-full lg:flex-nowrap">
@@ -83,10 +86,10 @@ const Contact = ({ contentfulContactMe }) => {
                         </motion.a>
                       </div>
                     </div>
-                    <Divider color={'rgb(75 85 99 / 0.5)'} flexItem><Chip label={'or'} sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}} /></Divider>
+                    <Divider color={'rgb(75 85 99 / 0.5)'} flexItem><Chip label={(isEnLanguage)?'or':'ó'} sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}} /></Divider>
                     <div className="w-full  grid justify-center   pt-[2rem] space-y-5">
                         <p className="font-mono text-xl font-bold text-center md:text-2xl ">
-                          Contact me here 👇🏻
+                        {(isEnLanguage)?"Contact me here 👇🏻":"Contáctame aquí👇🏻"}
                         </p>
                         <ContactMeSocialNetworks
                           socialNetworks={socialNetworks}
