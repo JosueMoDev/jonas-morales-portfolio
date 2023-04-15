@@ -69,7 +69,7 @@ export const query = graphql`
             aboutMeDescriptionEs
           }
           aboutMePhoto {
-            gatsbyImageData(width: 2316, jpegProgressive: true, height: 3088)
+            gatsbyImageData(width: 2684, jpegProgressive: true, height: 3245)
           }
           techStack {
             techs {
