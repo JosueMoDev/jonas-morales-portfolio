@@ -60,7 +60,7 @@ const SideDrawerComponent = ({ navigation }) => {
             ))}
           </List>
         </Box>
-        <div className="bottom-0 flex items-center justify-center w-full py-0 space-x-3 bg-white lg:py-5 portrait:absolute landscape:relative dark:bg-black">
+        <div className="bottom-0 flex items-center justify-center w-full py-0 mb-3 space-x-3 bg-white md:mb-1 lg:py-5 portrait:absolute landscape:relative dark:bg-black">
           <motion.a
             size="small"
             className=" flex float-left justify-center rounded-md py-2 items-center md:m-2 w-fit mb-2 lg:mb-[1.5rem] p-2 px-2 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
@@ -97,7 +97,7 @@ const SideDrawerComponent = ({ navigation }) => {
                     sx={{ width: "100%", height: "100%" }}
                   />
                 </div>
-                <p className="font-mono text-base">{(isEnLanguage)?'En':'Es'}</p>
+                <p className="font-mono text-base">{(isEnLanguage)?'Es':'En'}</p>
               </div>
             </div>
           </motion.a>

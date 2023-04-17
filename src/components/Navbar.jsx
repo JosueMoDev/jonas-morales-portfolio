@@ -11,7 +11,7 @@ const Navbar = ({ navigationUtilis }) => {
   const { logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs} = navigationUtilis;
   const { theme, isDrawerOpen, setTheme, toggleDrawer, toogleLanguage, isEnLanguage } = useUi();
   const navigationBar = (isEnLanguage) ? navigation.menuEn : navigation.menuEs;
-  
+
   const logo = theme === "dark" ? logos.darkLogo : logos.lightLogo;
   return (
     <>
@@ -51,7 +51,7 @@ const Navbar = ({ navigationUtilis }) => {
                   sx={{ width: "50%", height: "50%" }}
                 />
                 <span className="font-mono text-sm text-black capitalize dark:text-white">
-                  menu
+                  {(isEnLanguage)?'Menu':'Menú'}
                 </span>
               </Button>
             </div>
@@ -83,7 +83,7 @@ const Navbar = ({ navigationUtilis }) => {
                   sx={{ width: "50%", height: "50%" }}
                 />
                 <span className="font-mono text-sm text-black capitalize dark:text-white">
-                {(isEnLanguage)?'En':'Es'}
+                {(isEnLanguage)?'Es':'En'}
                 </span>
               </Button>
             </div>

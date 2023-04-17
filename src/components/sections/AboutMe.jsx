@@ -84,10 +84,10 @@ const AboutMe = ({ contentfulAboutMe }) => {
               <ContactMeSocialNetworks socialNetworks={socialNetworks} />
               </div>
               <div className="hidden lg:flex">
-                <Divider  orientation="vertical"  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={'or'} /></Divider>
+                <Divider   orientation="vertical"  variant="middle" flexItem><Chip sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}}  label={(isEnLanguage)?'or':'ó'} /></Divider>
               </div>
               <div className="w-full lg:hidden">
-               <Divider  variant="middle" flexItem><Chip className="text-white bg-black dark:bg-white dark:text-black" label={(isEnLanguage)?'or':'ó'} /></Divider>
+               <Divider color={'rgb(75 85 99 / 0.5)'}   variant="middle" flexItem><Chip sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}}  label={(isEnLanguage)?'or':'ó'} /></Divider>
               </div>
               
             <motion.a

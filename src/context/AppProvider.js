@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     isIntroDone: false,
     theme: null,
     isDrawerOpen: false,
-    isEnLanguage: true
+    isEnLanguage: false
 }
 
 
