@@ -17,8 +17,7 @@ const DevelopmentSkills = ({ skillsData }) => {
         <Box key={index} className="px-0 py-3 lg:px-10 lg:py-5" sx={{ width: "100%"}}>
           <Stack spacing={2}>
             <Card
-              sx={{ width: "100%", height:'100%' }}
-              className="shadow-md dark:shadow-[#2B292D]"
+              sx={{ width: "100%", height: '100%', boxShadow:'0 1px 2px 0 rgb(53 57 59)'}}
             >
               <div >
               <GatsbyImage
@@ -29,7 +28,7 @@ const DevelopmentSkills = ({ skillsData }) => {
               />
               </div>
               <CardContent className="bg-white dark:bg-black">
-                <p className="text-2xl font-semibold text-black lg:text-4xl dark:text-white">
+                <p className="text-2xl text-black lg:text-4xl dark:text-white">
                   {(isEnLanguage)?title:titulo}
                 </p>
                 <p className="text-xl text-black lg:text-2xl dark:text-white">

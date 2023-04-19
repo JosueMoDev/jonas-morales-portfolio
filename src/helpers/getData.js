@@ -27,8 +27,8 @@ export const getAllAboutMeContentfulData = (data) => {
             }
         }, 
         stackData: {
-            techs: node.techStack.techs,
-            shownItems:node.techStack.shownItems
+            techs: node.myStack.techs,
+            shownItems:node.myStack.shownItems
         },
         socialNetworks: node.socialNetworks.socialnetwoksdata,
         contactMe: {

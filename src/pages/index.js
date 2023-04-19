@@ -73,7 +73,7 @@ export const query = graphql`
           aboutMePhoto {
             gatsbyImageData(width: 2684, jpegProgressive: true, height: 3245)
           }
-          techStack {
+          myStack {
             techs {
               icon
               name
