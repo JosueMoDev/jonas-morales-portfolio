@@ -163,7 +163,7 @@ export const query = graphql`
             description
           }
           banner {
-            gatsbyImageData(width: 1584, height: 396, jpegProgressive: true)
+            gatsbyImageData(width: 3168, height: 792, jpegProgressive: true)
           }
         }
       }

@@ -4,8 +4,6 @@ import {
   Stack,
   Card,
   CardContent,
-  CardMedia,
-  Typography,
 } from "@mui/material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import useUi from "../hooks/useUI";
@@ -16,26 +14,27 @@ const DevelopmentSkills = ({ skillsData }) => {
   return (
     <div>
       {skillsData.map(({ titulo, title, description, descripcion, banner }, index) => (
-        <Box key={index} sx={{ width: "100%", paddingTop:5, paddingRight:10, paddingLeft:10 }}>
+        <Box key={index} className="px-0 py-3 lg:px-10 lg:py-5" sx={{ width: "100%"}}>
           <Stack spacing={2}>
             <Card
-              sx={{ width: "100%" }}
+              sx={{ width: "100%", height:'100%' }}
+              className="shadow-md dark:shadow-[#2B292D]"
             >
               <div >
               <GatsbyImage
-                className="z-[1] pointer-events-none rounded-md"
+                className="z-[1] pointer-events-none  object-fill"
                 image={getImage(banner)}
                 loading="lazy"
                 alt="banner"
               />
               </div>
-              <CardContent className="text-current bg-white dark:bg-black">
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent className="bg-white dark:bg-black">
+                <p className="text-2xl font-semibold text-black lg:text-4xl dark:text-white">
                   {(isEnLanguage)?title:titulo}
-                </Typography>
-                <Typography variant="body2">
+                </p>
+                <p className="text-xl text-black lg:text-2xl dark:text-white">
                   {(isEnLanguage)?description:descripcion}
-                </Typography>
+                </p>
               </CardContent>
             </Card>
           </Stack>
