@@ -86,7 +86,7 @@ export const query = graphql`
             }
           }
           contactMePhoto {
-            gatsbyImageData(sizes: "2316", jpegProgressive: true, height: 2683)
+            gatsbyImageData(width:3024, jpegProgressive: true, height: 2874)
           }
         }
       }
