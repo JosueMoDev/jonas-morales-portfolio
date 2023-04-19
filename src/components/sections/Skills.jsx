@@ -1,38 +1,51 @@
-import * as icons from "@icons-pack/react-simple-icons";
-import { Icon, SvgIcon } from "@mui/material";
-import { useAnimation, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import React from "react";
+import { Tab } from "@mui/material";
 import useUi from "../../hooks/useUI";
+import MyTechStack from "../MyTechStack";
+import Box from "@mui/material/Box";
+import DevelopmentSkills from "../DevelopmentSkills";
+import { styled } from "@mui/material/styles";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+
+const AntTabs = styled(TabList)({
+  borderBottom: "0.5px solid #d4d4d4",
+  "& .MuiTabs-indicator": {
+    backgroundColor: "currentColor",
+  },
+});
+
+const AntTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    textTransform: "none",
+    fontWeight: theme.typography.fontWeightRegular,
+    marginRight: theme.spacing(1),
+    color: "rgb(75 85 99 / 0.5)",
+    fontFamily: ["monospace", "Fira Code"].join(","),
+    "&:hover": {
+      color: "rgb(#a1a1aa / 0.5)",
+      opacity: 1,
+    },
+    "&.Mui-selected": {
+      color: "currentColor",
+      fontWeight: theme.typography.fontWeightMedium,
+    },
+    "&.Mui-focusVisible": {
+      backgroundColor: "#d1eaff",
+    },
+  })
+);
 
 const Skills = ({ contenfulSkills }) => {
-  const { isEnLanguage } = useUi()
-  const { skills, shownItems } = contenfulSkills;
-  const [shownSkills, setShownSkills] = useState(shownItems);
-  const [isAllSkillsLoaded, loadAllSkills] = useState(false);
-  const iControls = useAnimation();
-  const bControls = useAnimation();
+  const {skillsData, stackData } = contenfulSkills;
+  const { isEnLanguage } = useUi();
 
-  useEffect(() => {
-    const sequence = async () => {
-      await iControls.start((i) => ({
-        opacity: 1,
-        scaleY: 1,
-        transition: { delay: 0.5 },
-      }));
-      await bControls.start({ opacity: 1, scaleY: 1 });
-    };
-    sequence();
-  }, [shownSkills, iControls, bControls]);
+  const [value, setValue] = React.useState("1");
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-  const showMoreItems = () => {
-    loadAllSkills(true);
-    setShownSkills(shownSkills + skills.length);
-  };
-  const showLessItems = () => {
-    loadAllSkills(false);
-    setShownSkills(shownItems);
-  };
   return (
     <section className="w-full h-auto mt-[4rem]" id="skills">
       {/* Wrapper */}
@@ -41,77 +54,60 @@ const Skills = ({ contenfulSkills }) => {
         <div className="flex flex-wrap md:flex-nowrap xl:mt-[4rem] mt-[3rem] w-full  md:space-x-10">
           <div className="flex-col space-y-[1rem] w-max-[50%] w-full justify-start ">
             <p className="text-3xl font-semibold md:text-4xl lg:text-6xl">
-              {(isEnLanguage)?"Skills":"Habilidades"}
+              {isEnLanguage ? "Skills" : "Habilidades"}
             </p>
-            <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-3">
-              {skills.slice(0, shownSkills).map(({ name, icon }, key) => (
-                <motion.div
-                  key={key}
-                  custom={key}
-                  initial={{ opacity: 0, scaleY: 0 }}
-                  animate={iControls}
-                  className="w-max-[20rem] h-[3rem] mt-8 flex justify-center  items-center p-[1rem]  rounded-full"
+            <Box sx={{ width: "100%", typography: "body1" }}>
+              <TabContext value={value}>
+                <Box
+                  className="hidden lg:block"
+                  sx={{ borderBottom: 1, borderColor: "divider" }}
                 >
-                  <motion.div
-                    className="flex-col items-center w-full space-x-2 font-mono text-center capitalize md:text-2xl"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <SvgIcon
-                      sx={{ width: "4rem", height: "4rem" }}
-                      component={icons[`${icon}`]}
-                      inheritViewBox
+                  <AntTabs onChange={handleChange} centered>
+                    <AntTab
+                      label={
+                        isEnLanguage
+                          ? "Development Skills"
+                          : "Habilidades de desarollo"
+                      }
+                      value="1"
                     />
-                    <p className="font-mono">{name}</p>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-            {shownSkills && (
-              <motion.div
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={bControls}
-                className="flex justify-center w-full pt-5 text-center"
-              >
-                {!isAllSkillsLoaded ? (
-                  <button
-                    onClick={() => showMoreItems()}
-                    type="button"
-                    className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
-                  >
-                    <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
-                      <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                        <p className="font-mono text-base">{(isEnLanguage)?"Show More":"Mostrar Más"}</p>
-                        <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
-                          <Icon
-                            component={ExpandMore}
-                            sx={{ width: "100%", height: "100%" }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => showLessItems()}
-                    type="button"
-                    className=" flex justify-center rounded-md float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
-                  >
-                    <div className="flex items-center justify-center w-full h-full align-middle md:justify-start">
-                      <div className="flex items-center justify-start space-x-2 align-middle rounded-full">
-                        <p className="font-mono text-base">{(isEnLanguage)?"Show Less":"Mostrar Menos"}</p>
-                        <div className="w-[1.1rem] h-[1.1rem] md:w-[1.5rem] md:h-[1.5rem]  flex justify-center items-center ">
-                          <Icon
-                            component={ExpandLess}
-                            sx={{ width: "100%", height: "100%" }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                )}
-              </motion.div>
-            )}
+                    <AntTab
+                      label={
+                        isEnLanguage
+                          ? "My favorite tech"
+                          : "Mi tecnología favorita"
+                      }
+                      value="2"
+                    />
+                  </AntTabs>
+                </Box>
+                <Box
+                  className="block lg:hidden"
+                  sx={{ borderBottom: 1, borderColor: "divider" }}
+                >
+                  <AntTabs onChange={handleChange} centered>
+                    <AntTab
+                      label={
+                        isEnLanguage
+                          ? "👨🏻‍💻 Skills"
+                          : "👨🏻‍💻 Habilidades"
+                      }
+                      value="1"
+                    />
+                    <AntTab
+                      label="🎨 Stack"
+                      value="2"
+                    />
+                  </AntTabs>
+                </Box>
+                <TabPanel value="1">
+                  <DevelopmentSkills skillsData={skillsData} />
+                </TabPanel>
+                <TabPanel value="2">
+                  <MyTechStack stackData={stackData} />
+                </TabPanel>
+              </TabContext>
+            </Box>
           </div>
         </div>
       </div>

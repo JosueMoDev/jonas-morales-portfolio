@@ -26,8 +26,8 @@ export const getAllAboutMeContentfulData = (data) => {
                 value: node.aboutMeAssets.cvEs
             }
         }, 
-        skillsData: {
-            skills: node.techStack.techs,
+        stackData: {
+            techs: node.techStack.techs,
             shownItems:node.techStack.shownItems
         },
         socialNetworks: node.socialNetworks.socialnetwoksdata,
@@ -39,9 +39,22 @@ export const getAllAboutMeContentfulData = (data) => {
             photo:node.contactMePhoto.gatsbyImageData
         }
     }));
-    const [ aboutMeData, localEn, localEs, skillsData, socialNetworks, contactMe ] = allAboutMeData;
-    return { ...aboutMeData, ...skillsData, ...localEn, ...localEs,...socialNetworks, ...contactMe } 
+    const [ aboutMeData, localEn, localEs, stackData, socialNetworks, contactMe ] = allAboutMeData;
+    return { ...aboutMeData, ...stackData, ...localEn, ...localEs,...socialNetworks, ...contactMe } 
 }
+export const getAllSkillsContentfulData = (data) => {
+    const allSkillsContentfulData = data.edges
+    const allSkillsData = allSkillsContentfulData.map(({ node }) => ({
+        titulo: node.titulo,
+        title: node.title,
+        description: node.description.description,
+        descripcion: node.descripcion.descripcion,
+        banner:node.banner.gatsbyImageData
+    }));
+    const [...skillsData] = allSkillsData;
+    return skillsData  
+}
+
 export const getAllMainContentfulData = (data) => {
     const allMainContentfulData = data.edges
     const allMainData = allMainContentfulData.map(({ node }) => ({

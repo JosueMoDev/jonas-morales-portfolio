@@ -11,11 +11,12 @@ import {
   getAllAboutMeContentfulData,
   getAllMainContentfulData,
   getAllProjectsContentfulData,
+  getAllSkillsContentfulData
 } from "../helpers/getData";
 
 const IndexPage = ({ data }) => {
-  const { allContentfulAboutMe, allContentfulMain, allContentfulProjects } = data;
-  const { aboutMeData, localEn, localEs, skillsData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
+  const { allContentfulAboutMe, allContentfulMain, allContentfulProjects, allContentfulSkills } = data;
+  const { aboutMeData, localEn, localEs, stackData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
   const {
     logos,
     navigation,
@@ -23,7 +24,8 @@ const IndexPage = ({ data }) => {
     buttonsLabelMainEs,
   } = getAllMainContentfulData(allContentfulMain);
   const allProjectsData = getAllProjectsContentfulData(allContentfulProjects);
-
+  const skillsData = getAllSkillsContentfulData(allContentfulSkills);
+  
   return (
     <AppProvider>
       <Layout
@@ -36,7 +38,7 @@ const IndexPage = ({ data }) => {
       >
         <Seo logos={logos} />
         <AboutMe contentfulAboutMe={{ aboutMeData, socialNetworks, localEn, localEs }} />
-        <Skills contenfulSkills={skillsData} />
+        <Skills contenfulSkills={{ stackData, skillsData}} />
         <Projects contenfulProjects={ allProjectsData } />
         <Contact contentfulContactMe={{ contactMe, socialNetworks }} />
       </Layout>
@@ -144,6 +146,24 @@ export const query = graphql`
           }
           descriptionEs {
             descriptionEs
+          }
+        }
+      }
+    }
+
+    allContentfulSkills {
+      edges {
+        node {
+          title
+          titulo
+          descripcion {
+            descripcion
+          }
+          description {
+            description
+          }
+          banner {
+            gatsbyImageData(width: 1584, height: 396, jpegProgressive: true)
           }
         }
       }
