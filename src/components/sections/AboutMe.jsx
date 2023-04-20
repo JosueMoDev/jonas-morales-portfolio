@@ -54,7 +54,7 @@ const AboutMe = ({ contentfulAboutMe }) => {
             className="md:max-w-[50%]"
           >
             <div className="mb-0  md:mb-[1.5rem]">
-              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-center md:text-start md:space-y-3 md:text-2xl ">
+              <p className="flex items-center my-10 space-y-1 font-mono text-lg tracking-wide text-justify md:text-start md:space-y-3 md:text-2xl ">
                 {aboutMe.description}
               </p>
             </div>
