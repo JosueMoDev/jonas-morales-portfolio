@@ -67,7 +67,7 @@ const Skills = ({ contenfulSkills }) => {
                       label={
                         isEnLanguage
                           ? "Development Skills"
-                          : "Habilidades de desarollo"
+                          : "Habilidades de desarrollo"
                       }
                       value="1"
                     />
