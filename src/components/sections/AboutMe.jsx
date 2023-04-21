@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {  Chip, Divider, Icon } from "@mui/material";
+import { Chip, Divider, Icon } from "@mui/material";
 import { Download } from "@mui/icons-material";
 import ContactMeSocialNetworks from "../ContactMeSocialNetworks";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
@@ -9,7 +9,9 @@ import useUi from "../../hooks/useUI";
 const AboutMe = ({ contentfulAboutMe }) => {
   const { isEnLanguage } = useUi();
   const { aboutMeData, socialNetworks, localEn, localEs } = contentfulAboutMe;
-  const aboutMe = isEnLanguage ? { ...aboutMeData, ...localEn } : { ...aboutMeData, ...localEs };
+  const aboutMe = isEnLanguage
+    ? { ...aboutMeData, ...localEn }
+    : { ...aboutMeData, ...localEs };
   return (
     <section className="w-full h-auto " id="about">
       {/* Wrapper */}
@@ -42,6 +44,7 @@ const AboutMe = ({ contentfulAboutMe }) => {
           </div>
         </div>
       </div>
+
       <div className=" text-black dark:text-white m-[auto]  p-[1.25rem] md:p-[2.5rem] w-full h-auto min-h-[100vh]   flex flex-col justify-start mb-[1rem]">
         <div className="flex flex-wrap items-center md:flex-nowrap md:space-x-10">
           <motion.div
@@ -82,14 +85,30 @@ const AboutMe = ({ contentfulAboutMe }) => {
           <div className="flex flex-wrap items-center justify-center h-full align-middle md:space-x-1 md:flex-nowrap">
             <div className=" w-fit mx-2  grid justify-center  mb-[3rem] md:mb-0  mt-[1rem] space-y-5">
               <ContactMeSocialNetworks socialNetworks={socialNetworks} />
-              </div>
-              <div className="hidden lg:flex">
-                <Divider   orientation="vertical"  variant="middle" flexItem><Chip sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}}  label={(isEnLanguage)?'or':'ó'} /></Divider>
-              </div>
-              <div className="w-full lg:hidden">
-               <Divider color={'rgb(75 85 99 / 0.5)'}   variant="middle" flexItem><Chip sx={{ backgroundColor:'rgb(75 85 99 / 0.5)', color:'currentcolor'}}  label={(isEnLanguage)?'or':'ó'} /></Divider>
-              </div>
-              
+            </div>
+            <div className="hidden lg:flex">
+              <Divider orientation="vertical" variant="middle" flexItem>
+                <Chip
+                  sx={{
+                    backgroundColor: "rgb(75 85 99 / 0.5)",
+                    color: "currentcolor",
+                  }}
+                  label={isEnLanguage ? "or" : "ó"}
+                />
+              </Divider>
+            </div>
+            <div className="w-full lg:hidden">
+              <Divider color={"rgb(75 85 99 / 0.5)"} variant="middle" flexItem>
+                <Chip
+                  sx={{
+                    backgroundColor: "rgb(75 85 99 / 0.5)",
+                    color: "currentcolor",
+                  }}
+                  label={isEnLanguage ? "or" : "ó"}
+                />
+              </Divider>
+            </div>
+
             <motion.a
               size="small"
               className=" flex justify-center rounded-md mt-5 lg:mt-0 float-right py-2 items-center md:m-2 w-fit mb-[1.5rem] p-2 md:px-4 text-xl  text-white  cursor-pointer dark:text-black  bg-black dark:bg-white"
@@ -110,7 +129,7 @@ const AboutMe = ({ contentfulAboutMe }) => {
                   <p className="font-mono text-base">{aboutMe.buttons.label}</p>
                 </div>
               </div>
-              </motion.a>
+            </motion.a>
           </div>
         </div>
       </div>

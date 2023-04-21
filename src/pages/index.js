@@ -11,21 +11,29 @@ import {
   getAllAboutMeContentfulData,
   getAllMainContentfulData,
   getAllProjectsContentfulData,
-  getAllSkillsContentfulData
+  getAllSkillsContentfulData,
 } from "../helpers/getData";
 
 const IndexPage = ({ data }) => {
-  const { allContentfulAboutMe, allContentfulMain, allContentfulProjects, allContentfulSkills } = data;
-  const { aboutMeData, localEn, localEs, stackData, socialNetworks, contactMe } = getAllAboutMeContentfulData(allContentfulAboutMe);
   const {
-    logos,
-    navigation,
-    buttonsLabelMainEn,
-    buttonsLabelMainEs,
-  } = getAllMainContentfulData(allContentfulMain);
+    allContentfulAboutMe,
+    allContentfulMain,
+    allContentfulProjects,
+    allContentfulSkills,
+  } = data;
+  const {
+    aboutMeData,
+    localEn,
+    localEs,
+    stackData,
+    socialNetworks,
+    contactMe,
+  } = getAllAboutMeContentfulData(allContentfulAboutMe);
+  const { logos, navigation, buttonsLabelMainEn, buttonsLabelMainEs } =
+    getAllMainContentfulData(allContentfulMain);
   const allProjectsData = getAllProjectsContentfulData(allContentfulProjects);
   const skillsData = getAllSkillsContentfulData(allContentfulSkills);
-  
+
   return (
     <AppProvider>
       <Layout
@@ -33,13 +41,15 @@ const IndexPage = ({ data }) => {
           navigation,
           buttonsLabelMainEn,
           buttonsLabelMainEs,
-          logos
+          logos,
         }}
       >
         <Seo logos={logos} />
-        <AboutMe contentfulAboutMe={{ aboutMeData, socialNetworks, localEn, localEs }} />
-        <Skills contenfulSkills={{ stackData, skillsData}} />
-        <Projects contenfulProjects={ allProjectsData } />
+        <AboutMe
+          contentfulAboutMe={{ aboutMeData, socialNetworks, localEn, localEs }}
+        />
+        <Skills contenfulSkills={{ stackData, skillsData }} />
+        <Projects contenfulProjects={allProjectsData} />
         <Contact contentfulContactMe={{ contactMe, socialNetworks }} />
       </Layout>
     </AppProvider>
@@ -88,7 +98,7 @@ export const query = graphql`
             }
           }
           contactMePhoto {
-            gatsbyImageData(width:3024, jpegProgressive: true, height: 2874)
+            gatsbyImageData(width: 3024, jpegProgressive: true, height: 2874)
           }
         }
       }
